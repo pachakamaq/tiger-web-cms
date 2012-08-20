@@ -15,6 +15,7 @@
 		Site Name: <input type="text" name="site" /><br />
 		Site URL: <input type="text" name="url" /><br />
 		Base Folder: <input type="text" name="folder" /><br />
+		E-mail: <input type="text" name="email" /><br />
 		Username: <input type="text" name="uname" /><br />
 		Password: <input type="password" name="pass" /><br />
 		Confirm Password: <input type="password" name="cpass" /><br />
@@ -43,6 +44,7 @@
 		Site Name: <input type="text" name="site" /><br />
 		Site URL: <input type="text" name="url" /><br />
 		Base Folder: <input type="text" name="folder" /><br />
+		E-mail: <input type="text" name="email" /><br />
 		Username: <input type="text" name="uname" /><br />
 		Password: <input type="password" name="pass" /><br />
 		Confirm Password: <input type="password" name="cpass" /><br />
