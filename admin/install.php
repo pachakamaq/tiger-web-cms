@@ -14,6 +14,7 @@
 	<form action="install.php" method="post">
 		Site Name: <input type="text" name="site" /><br />
 		Site URL: <input type="text" name="url" /><br />
+		Base Folder: <input type="text" name="folder" /><br />
 		Username: <input type="text" name="uname" /><br />
 		Password: <input type="password" name="pass" /><br />
 		Confirm Password: <input type="password" name="cpass" /><br />
@@ -23,9 +24,11 @@
 		}
 		else{
 			$locatn = 'C:\wamp\www\tigercms\admin\data\admin_config';
+			$_POST['pass']= md5($_POST['pass']); //encode password
+			unset($_POST['cpass']); // remove confirm password entry
 			xmlWrite($_POST,$locatn);
 			?>
-			<div>Account Successfully created!!!<br/>
+			<div>Account Successfully created!!!<br />
 			<a href="login.php">Go to Login page</a>
 			</div>
 			
@@ -37,11 +40,13 @@
 	else{
 		?>
 	<form action="install.php" method="post">
-		Site Name: <input type="text" name="site" /><br /> Site URL: <input
-			type="text" name="url" /><br /> Username: <input type="text"
-			name="uname" /><br /> Password: <input type="password" name="pass" /><br />
-		Confirm Password: <input type="password" name="cpass" /><br /> <input
-			type="submit" value="Submit" />
+		Site Name: <input type="text" name="site" /><br />
+		Site URL: <input type="text" name="url" /><br />
+		Base Folder: <input type="text" name="folder" /><br />
+		Username: <input type="text" name="uname" /><br />
+		Password: <input type="password" name="pass" /><br />
+		Confirm Password: <input type="password" name="cpass" /><br />
+		<input type="submit" value="Submit" />
 	</form>
 	<?php 
 	}
