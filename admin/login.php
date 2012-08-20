@@ -1,3 +1,5 @@
+<?php include 'C:\wamp\www\tigercms\functions\xml_helper.php' ?>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -6,22 +8,51 @@
 <?php
 if (isset($_POST) && ($_POST != NULL))
 { 
-	if(($_POST['username'] == "admin") && ($_POST['password'] == "admin"))
+	$locatn = 'C:\wamp\www\tigercms\admin\data\admin_config';
+	$config_data = readXml($locatn);	
+	if((($config_data['uname']) == ($_POST['uname'])) && (($config_data['pass']) == ($_POST['pass'])))
 	{
-		echo "successful login";
-	}
-	else 
+	//	header("Location: admin_panel.php");
+		?>
+		<div>Successful Login!!!</div>
+		<?php
+	}	
+	else
 	{
-		echo "Incorrect Username/Password";
+		?>
+		<div id="warning">Invalid Login Details</div>
+		<form action = "login.php" method = "post">
+		Username: <input type = 'text' name = 'uname'/>
+		<br />
+		Password: <input type = 'password' name = 'pass'/>
+		<br />
+		Submit: <input type = 'submit' value = 'login'/>
+		<a href="login.php?retrieve=true">Retrieve User Details</a>
+		</form>
+		<?php
 	}
 }
+elseif (isset($_GET) && ($_GET != NULL))
+{
+	$locatn = 'C:\wamp\www\tigercms\admin\data\admin_config';
+	$config_data = readXml($locatn);
+	$to = $config_data['email'];
+	$subject = "Website Login Details";
+	$txt = "Login Details for your website: ".$config_data['url'].". Username: ".$config_data['uname'].". Password: ".$config_data['pass'];
+	$headers = "From: ".$config_data['url'];
+	mail($to,$subject,$txt,$headers);
+	?>
+		<div>Password Send Succesfully to the registered email.</div>
+		<a href="login.php">Back To Login Page</a>
+		<?php 
+	}
 	else
 	{
 	?>
 		<form action = "login.php" method = "post">
-		Username: <input type = 'text' name = 'username'/>
+		Username: <input type = 'text' name = 'uname'/>
 		<br />
-		Password: <input type = 'password' name = 'password'/>
+		Password: <input type = 'password' name = 'pass'/>
 		<br />
 		Submit: <input type = 'submit' value = 'login'/>
 		</form>
