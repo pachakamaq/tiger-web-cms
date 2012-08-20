@@ -1,49 +1,53 @@
 <?php
 
-function writeXml($elements,$location){
-	$doc = new DOMDocument();
-	$doc->formatOutput = true;
-	 
-	$r = $doc->createElement( "data" );
-	$doc->appendChild($r);
-	foreach( $elements as $element )
-	{
-			$elem = $doc->createElement($element['tagName']);
-			$elem->appendChild($doc->createTextNode($element['textNode']));
-			/*
-			foreach( $element['attr'] as $key => $value ){
-				$elem->setAttribute($key, $value);
-			}
-			*/
-			$r->appendChild($elem);
-	}
-	 
-	$doc->save($location.".xml");
-	//chmod("write.txt", 0755);
+function xmlWrite($data_array,$location){
+    $xml = new SimpleXMLElement('<data/>');
+    foreach($data_array as $key => $value){
+        if(is_array($value)){
+            xmlWrite($value, $xml->addChild($key));
+        }else{
+            $xml->addChild($key, $value);
+        }
+    }
+    $fp = fopen($location.'.xml', 'w');
+	fwrite($fp, $xml->asXML());
+	fclose($fp);
+	
 }
-
-$data_array =array(array(
-					'tagName' => 'username',
-					'textNode' => 'u1'
-						),
-					array(
-					'tagName' => 'pass',
-					'textNode' => 'p1'
-						)
-		);
-
-writeXml($data_array,'data/xml_tst12345');
 
 function readXml($location){
-	$xml = simplexml_load_file($location.".xml");
+//	if (file_exists('test.xml')) {
+		$xml = simplexml_load_file($location.'.xml');
 	
-	echo $xml->getName() . "<br />";
-	
-	foreach($xml->children() as $child)
-	{
-		echo $child->getName() . ": " . $child . "<br />";
-	}
+	//	print_r($xml);
+//	} else {
+//		exit('Failed to open test.xml.');
+//	}
+	$json = json_encode($xml);
+	$array = json_decode($json,TRUE);
+	return $array;
 }
+
+
+/*
+ * 
+ * Test current function
+ * 
+ *
+$arra= array(
+		'name' => 'poonam',
+		'uname' => 'cjnvmx,n',
+		'pass' => 'sgcbv,mzcxsrgs',
+		'message' => 'ds,mcnv,znbfs'
+		);
+$loc = 'pankaj';
+
+xmlWrite($arra,$loc);
+print_r(readXml($loc));
+
+ * 
+ * 
+ */
 
 
 ?>
