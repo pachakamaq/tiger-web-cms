@@ -22,13 +22,8 @@ if (isset($_GET) && ($_GET != NULL)){
 					<td>Page Contents:<td/><td><textarea name="pg_contents" rows="30" cols="75"></textarea></td>
 				</tr>
 				<tr>
-					<td>Options:<td/><td></td>
+					<td>Options:<td/><td><input type="checkbox" name="menu_tab" value="true" /> Add to Menu</td>
 				</tr>
-				<div>
-					<tr>
-						<td></td><td><input type="checkbox" name="menu_tab" value="true" /> Add to Menu</td>
-					</tr> 
-				</div>
 				<tr>
 					<td><input type="submit" value="Save Page" /></td><td></td>
 				</tr>
@@ -36,12 +31,12 @@ if (isset($_GET) && ($_GET != NULL)){
 		</form>
 		<?php
 	}
-	
-	
 }
 
 elseif (isset($_POST) && ($_POST != NULL)){
-	
+	/*
+	 * save page function
+	 */
 }
 else{
 	/*

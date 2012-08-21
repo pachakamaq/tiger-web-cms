@@ -24,7 +24,7 @@
 	<?php 			
 		}
 		else{
-			$locatn = 'C:\wamp\www\tigercms\admin\data\admin_config';
+			$locatn = '\data\admin_config';
 			$_POST['pass'] = md5($_POST['pass']);
 			unset($_POST['cpass']); // remove confirm password entry
 			xmlWrite($_POST,$locatn);
