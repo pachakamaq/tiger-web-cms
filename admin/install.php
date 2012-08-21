@@ -1,4 +1,4 @@
-<?php include 'C:\wamp\www\tigercms\functions\xml_helper.php' ?>
+<?php include 'C:\wamp\www\tigercms\functions\helper.php' ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -25,6 +25,7 @@
 		}
 		else{
 			$locatn = 'C:\wamp\www\tigercms\admin\data\admin_config';
+			$_POST['pass'] = md5($_POST['pass']);
 			unset($_POST['cpass']); // remove confirm password entry
 			xmlWrite($_POST,$locatn);
 			?>
