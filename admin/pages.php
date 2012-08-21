@@ -8,19 +8,29 @@
 <?php
 if (isset($_GET) && ($_GET != NULL)){
 	
-	if($_GET['action']='cretePage'){
+	if($_GET['action']='cretepage'){
 		?>
 		<form action="pages.php" method="post">
-			Page Title: <input type="text" name="pg_title" /><br />
-			Page Contents: <textarea name="pg_contents" rows="30" cols="75"></textarea><br />
-			Options:
-			<div>
-				<input type="checkbox" name="menu_tab" value="true" /> Add to Menu 
-			</div>
-			<input type="submit" value="Save Page" />
-		</form>		
-		
-		
+			<table>
+				<tr>
+					<td>Page Title:<td/><td><input type="text" name="pg_title" /></td>
+				</tr>
+				<tr>
+					<td>Page Contents:<td/><td><textarea name="pg_contents" rows="30" cols="75"></textarea></td>
+				</tr>
+				<tr>
+					<td>Options:<td/><td></td>
+				</tr>
+				<div>
+					<tr>
+						<td></td><td><input type="checkbox" name="menu_tab" value="true" /> Add to Menu</td>
+					</tr> 
+				</div>
+				<tr>
+					<td><input type="submit" value="Save Page" /></td><td></td>
+				</tr>
+			</table>
+		</form>
 		<?php
 	}
 	
