@@ -14,7 +14,7 @@ if (isset($_POST) && ($_POST != NULL))
 	{
 		session_start();
 		$_SESSION['admin']="true";
-	//	header("Location: admin_panel.php");
+		header("Location: admin_panel.php");
 		?>
 		<div>Successful Login!!!</div>
 		<?php
