@@ -123,6 +123,8 @@ elseif (isset($_POST) && ($_POST != NULL)){
 else{
 	
 	echo "list of pages";
+	$locatn = "C:/wamp/www/tigercms/pages/data";
+	getPageList($locatn);
 	/*
 	 * function list pages
 	 */
