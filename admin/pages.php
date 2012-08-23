@@ -46,6 +46,7 @@ validateAdmin();
 </script>
 </head>
 <body>
+<div><span><a href="pages.php">View Pages</a></span><span><a href="pages.php?action=createpage">Create Page</a></span></div>
 <?php
 if (isset($_GET) && ($_GET != NULL)){	
 if($_GET['action'] == 'createpage'){
@@ -74,6 +75,7 @@ if($_GET['action'] == 'createpage'){
 		$filename = $_GET['pg_name'];
 		$locatn = "C:/wamp/www/tigercms/pages/data/pg_".$filename;
 		$pg_data = readXml($locatn);
+		$checked = checkInMenu(str_replace("_", " ", $_GET['pg_name']));
 		?>
 					<form action="pages.php" method="post">
 					<input type="text" name="old_pg_title" style="display: none;" value= "<?php echo $pg_data['pg_title'];?>" />
@@ -85,7 +87,7 @@ if($_GET['action'] == 'createpage'){
 								<td>Page Contents:<td/><td><textarea id="pg_contents" name="pg_contents" rows="30" cols="50"><?php echo $pg_data['pg_contents']; ?></textarea></td>
 							</tr>
 							<tr>
-								<td>Options:<td/><td><input type="checkbox" name="menu_tab" value="true" /> Add to Menu</td>
+								<td>Options:<td/><td><input type="checkbox" name="menu_tab" value="true" <?php echo $checked; ?> /> Add to Menu</td>
 							</tr>
 							<tr>
 								<td><input type="submit" value="Save Page" /></td><td></td>
@@ -98,6 +100,7 @@ if($_GET['action'] == 'createpage'){
 		$filename = $_GET['pg_name'];
 		$locatn = "C:/wamp/www/tigercms/pages/data/pg_".$filename;
 		delXml($locatn);
+		delFromMenu(str_replace("_", " ", $_GET['pg_name']));
 		?>
 		<div>Page successfully Deleted! <br /><a href="pages.php">View all pages.</a></div>
 		<?php
@@ -116,9 +119,21 @@ elseif (isset($_POST) && ($_POST != NULL)){
 			$filename_old = str_replace(" ", "_", $_POST['old_pg_title']);
 			$locatn_old = "C:/wamp/www/tigercms/pages/data/pg_".$filename_old;
 			delXml($locatn_old);
+			delFromMenu($_POST['old_pg_title']);
 		}
 		unset($_POST['old_pg_title']); // remove confirm password entry
 	}
+	if(!(isset($_POST['menu_tab']))){
+		$_POST['menu_tab']='false';
+	}
+	if($_POST['menu_tab'] == 'true'){
+		addToMenu($_POST['pg_title']);
+	}
+	elseif($_POST['menu_tab'] == 'false'){
+		delFromMenu($_POST['pg_title']);
+	}
+	
+	
 	xmlWrite($_POST,$locatn);
 	?>
 	

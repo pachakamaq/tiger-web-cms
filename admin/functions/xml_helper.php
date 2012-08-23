@@ -42,7 +42,7 @@ function getPageList($dir){
 			unset($page_list[$key]);
 		}
 		else{
-			$page_list[$key] = substr($page_list[$key], 3, -4);  // bcd
+			$page_list[$key] = substr($page_list[$key], 3, -4);
 			$page_list[$key] = str_replace("_", " ", $page_list[$key]);
 		} 
 	}
@@ -51,6 +51,42 @@ function getPageList($dir){
 
 function delXml($location){
 	unlink($location.'.xml');
+}
+
+function addToMenu($pg_title){
+	$location = 'C:/wamp/www/tigercms/pages/data/menu_tabs';
+	$menu_tabs = readXml($location);
+	$key = 'tab'.(sizeof($menu_tabs)+1);
+	$menu_tabs[$key]=$pg_title;
+	xmlWrite($menu_tabs,$location);
+}
+
+function delFromMenu($pg_title){
+	$location = 'C:/wamp/www/tigercms/pages/data/menu_tabs';
+	$menu_tabs = readXml($location);
+	$menu_tabs_new = array();
+	$count = 1;
+	$key = array_search($pg_title, $menu_tabs);
+	if($key){
+		unset($menu_tabs[$key]);
+	}
+	foreach ($menu_tabs as $value) {
+		$menu_tabs_new['tab'.$count]=$value;
+		$count++;
+	}
+	xmlWrite($menu_tabs_new,$location);
+}
+
+function checkInMenu($pg_title){
+	$location = 'C:/wamp/www/tigercms/pages/data/menu_tabs';
+	$menu_tabs = readXml($location);
+	$key = array_search($pg_title, $menu_tabs);
+	if($key){
+		return "checked='checked'";
+	}
+	else{
+		return ' ';
+	}
 }
 
 
