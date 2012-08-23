@@ -30,13 +30,27 @@ function readXml($location){
 	return $array;
 }
 
-function generateRandomString() {
-	$characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-	$randomString = '';
-	for ($i = 0; $i < 10; $i++) {
-		$randomString .= $characters[rand(0, strlen($characters) - 1)];
+function getPageList($dir){
+	$page_list = scandir($dir, 1);
+	$find_prefix = "pg_";
+	$find_suffix = ".xml";
+	foreach ($page_list as $key => $value) {
+		$pos_pre = strpos($value, $find_prefix);
+		$pos_suf = strpos($value, $find_suffix);
+		
+		if(($pos_pre === false)||($pos_suf === false)){
+			unset($page_list[$key]);
+		}
+		else{
+			$page_list[$key] = substr($page_list[$key], 3, -4);  // bcd
+			$page_list[$key] = str_replace("_", " ", $page_list[$key]);
+		} 
 	}
-	return $randomString;
+	return $page_list;
+}
+
+function delXml($location){
+	unlink($location.'.xml');
 }
 
 
