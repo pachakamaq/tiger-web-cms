@@ -49,8 +49,7 @@ validateAdmin();
 <?php
 if (isset($_GET) && ($_GET != NULL)){	
 if($_GET['action'] == 'createpage'){
-	$pg_data['pg_title']='';
-	$pg_data['pg_contents']='';
+
 	?>
 				<form action="pages.php" method="post">
 					<table>
