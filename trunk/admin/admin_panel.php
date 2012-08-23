@@ -30,8 +30,7 @@ validateAdmin();
                     break;
                 case "menu_manager":
                 	$("#left_iframe").attr('src','menu_manager.php');
-                    break;
-                        
+                    break;             
                 default:
                 	$("#left_iframe").attr('src','');
             }
@@ -47,6 +46,8 @@ validateAdmin();
 		//  Do Something
 	}
 	elseif(isset($_GET) && ($_GET != NULL))
+	{
+		if($_GET['logout'] == 'true')
 		{
 			session_unset();
 			validateAdmin();
@@ -55,6 +56,7 @@ validateAdmin();
 			<a href="login.php">Back To Login Page</a>
 			<?php
 		}
+	}
 	else
 		{
 		?>
