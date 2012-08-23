@@ -1,9 +1,9 @@
 <?php
 ?>
 <html>
-	<head>
-	</head>
-		<body>
-
-		</body>
+<head>
+</head>
+<body>
+<div>Welcome </div>
+</body>
 </html>

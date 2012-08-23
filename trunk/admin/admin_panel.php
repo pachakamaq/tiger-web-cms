@@ -1,5 +1,6 @@
 <?php
 include 'C:\wamp\www\tigercms\admin\functions\admin_helper.php';
+include 'C:\wamp\www\tigercms\admin\functions\xml_helper.php';
 validateAdmin();
 ?>
 
@@ -58,11 +59,13 @@ validateAdmin();
 		}
 	}
 	else
-		{
+		{	
+			$locatn = 'C:\wamp\www\tigercms\admin\data\admin_config';
+			$config_data = readXml($locatn);
 		?>
 		<form action="admin_panel.php" method="post">
-		<div>Welcome to Admin Main Page
-		<a href="admin_panel.php?logout=true">Logout</a>
+		<div>Welcome <?php echo $config_data['uname']?>
+				<a href="admin_panel.php?logout=true">Logout</a>
 		</div>
 		<span class="tab" id = "admin_panel">Home</span>
 		<span class="tab" id = "pages" >Pages</span>
