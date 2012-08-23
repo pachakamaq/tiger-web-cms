@@ -12,7 +12,7 @@
 			?>
 	<div id="warning">Password not verified</div>
 	<form action="install.php" method="post">
-		Site Name: <input type="text" name="site" /><br />
+		Site Name: <input type="text" name="site_name" /><br />
 		Site URL: <input type="text" name="url" /><br />
 		Base Folder: <input type="text" name="folder" /><br />
 		E-mail: <input type="text" name="email" /><br />
@@ -41,7 +41,7 @@
 	else{
 		?>
 	<form action="install.php" method="post">
-		Site Name: <input type="text" name="site" /><br />
+		Site Name: <input type="text" name="site_name" /><br />
 		Site URL: <input type="text" name="url" /><br />
 		Base Folder: <input type="text" name="folder" /><br />
 		E-mail: <input type="text" name="email" /><br />

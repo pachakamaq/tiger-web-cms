@@ -11,7 +11,7 @@ validateAdmin();
 	<?php
 	if (isset($_POST) && ($_POST != NULL))
 	{
-	if($_POST["pass"] != $_POST["cpass"]){
+		if($_POST["pass"] != $_POST["cpass"]){
 			?>
 	<div id="warning">Password not verified</div>
 	<form action="admin_home.php" method="post">
@@ -26,49 +26,47 @@ validateAdmin();
 					</td>
 				</tr>
 				<tr>
-					<td><input type='text' name='website_name'
-						value='<?php echo $config_data['site']?>' />
+					<td><input type='text' name='site_name'
+						value='<?php echo $config_data['site_name']?>' />
 					</td>
-					<td><input type='text' name='website_url'
+					<td><input type='text' name='url'
 						value='<?php echo $config_data['url']?>' />
 					</td>
 				</tr>
-				
+
 				<tr>
 					<td>User Settings:</td>
 				</tr>
 				<tr>
 					<td>UserName:</td>
-					<td>Email Address:
-					</td>
+					<td>Email Address:</td>
 				</tr>
 				<tr>
-					<td><input type='text' disabled="disabled" name='username'
+					<td><input type='text' disabled="disabled" name='uname'
 						value='<?php echo $config_data['uname']?>' />
 					</td>
-					<td><input type='text' name='email_address'
+					<td><input type='text' name='email'
 						value='<?php echo $config_data['email']?>' />
 					</td>
 				</tr>
-				
+
 				<tr>
 					<td>New Password:</td>
 					<td>Confirm Password:</td>
 				</tr>
 				<tr>
-					<td><input type='text' name='pass' />
+					<td><input type='password' name='pass' />
 					</td>
-					<td><input type='text' name='cpass'/>
+					<td><input type='password' name='cpass' />
 					</td>
 				</tr>
-				
+
 				<tr>
-				<td>
-				<input type = "submit" name = "save" value = "Save"/>
-				<input type = "submit" name = "reset" value = "Reset"/>
-				</td>
+					<td><input type="submit" name="save" value="Save" /> <input
+						type="submit" name="reset" value="Reset" />
+					</td>
 				</tr>
-				
+
 			</table>
 		</div>
 	</form>
@@ -77,18 +75,19 @@ validateAdmin();
 		else{
 			$locatn = 'C:\wamp\www\tigercms\admin\data\admin_config';
 			$_POST['pass'] = md5($_POST['pass']);
-			print_r($_POST);
-			
-			//unset($_POST['cpass']); // remove confirm password entry
+			//print_r($_POST);
+
+			unset($_POST['cpass']); // remove confirm password entry
 			xmlWrite($_POST,$locatn);
-			
+
 			?>
-			<div>Changes done Successfully!!!<br />
-			<a href="admin_home.php">Go to Admin Home page</a>
-			</div>	
-			<?php 
+	<div>
+		Changes done Successfully!!!<br /> <a href="admin_home.php">Go to
+			Admin Home page</a>
+	</div>
+	<?php 
 		}
-		
+
 	}
 	elseif(isset($_GET) && ($_GET != NULL))
 	{
@@ -111,49 +110,55 @@ validateAdmin();
 					</td>
 				</tr>
 				<tr>
-					<td><input type='text' name='website_name'
-						value='<?php echo $config_data['site']?>' />
+					<td><input type='text' name='site_name'
+						value='<?php echo $config_data['site_name']?>' />
 					</td>
-					<td><input type='text' name='website_url'
+					<td><input type='text' name='url'
 						value='<?php echo $config_data['url']?>' />
 					</td>
+
+
+					<td><input style="display: none" type='text' name='uname'
+						value='<?php echo $config_data['uname']?>' />
+					</td>
+
+
 				</tr>
-				
+
 				<tr>
 					<td>User Settings:</td>
 				</tr>
 				<tr>
 					<td>UserName:</td>
-					<td>Email Address:
-					</td>
+					<td>Email Address:</td>
 				</tr>
 				<tr>
-					<td><input type='text' disabled="disabled" name='username'
+
+					<td><input type='text' disabled="disabled" name='uname'
 						value='<?php echo $config_data['uname']?>' />
 					</td>
-					<td><input type='text' name='email_address'
+					<td><input type='text' name='email'
 						value='<?php echo $config_data['email']?>' />
 					</td>
 				</tr>
-				
+
 				<tr>
 					<td>New Password:</td>
 					<td>Confirm Password:</td>
 				</tr>
 				<tr>
-					<td><input type='text' name='pass' />
+					<td><input type='password' name='pass' />
 					</td>
-					<td><input type='text' name='cpass'/>
+					<td><input type='password' name='cpass' />
 					</td>
 				</tr>
-				
+
 				<tr>
-				<td>
-				<input type = "submit" value = "Save"/>
-				<input type = "submit" value = "Reset"/>
-				</td>
+					<td><input type="submit" value="Save" /> <a href="admin_home.php"><button
+								type="button">Reset</button> </a>
+					</td>
 				</tr>
-				
+
 			</table>
 		</div>
 	</form>
