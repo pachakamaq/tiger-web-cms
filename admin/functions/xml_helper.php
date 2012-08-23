@@ -9,6 +9,8 @@ function xmlWrite($data_array,$location){
             $xml->addChild($key, $value);
         }
     }
+    
+    
     $fp = fopen($location.'.xml', 'w');
 	fwrite($fp, $xml->asXML());
 	fclose($fp);
@@ -36,6 +38,7 @@ function generateRandomString() {
 	}
 	return $randomString;
 }
+
 
 
 /*

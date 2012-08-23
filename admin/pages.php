@@ -1,6 +1,7 @@
-<?php include '\functions\xml_helper.php';
-include '\functions\admin_helper.php';
+<?php include 'C:\wamp\www\tigercms\admin\functions\xml_helper.php';
+include 'C:\wamp\www\tigercms\admin\functions\admin_helper.php';
 validateAdmin();
+
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -46,33 +47,70 @@ validateAdmin();
 </head>
 <body>
 <?php
-if (isset($_GET) && ($_GET != NULL)){
+if (isset($_GET) && ($_GET != NULL)){	
+if($_GET['action'] == 'createpage'){
+	$pg_data['pg_title']='';
+	$pg_data['pg_contents']='';
+	?>
+				<form action="pages.php" method="post">
+					<table>
+						<tr>
+							<td>Page Title:<td/><td><input type="text" name="pg_title" /></td>
+						</tr>
+						<tr>
+							<td>Page Contents:<td/><td><textarea id="pg_contents" name="pg_contents" rows="30" cols="50"></textarea></td>
+						</tr>
+						<tr>
+							<td>Options:<td/><td><input type="checkbox" name="menu_tab" value="true" /> Add to Menu</td>
+						</tr>
+						<tr>
+							<td><input type="submit" value="Save Page" /></td><td></td>
+						</tr>
+					</table>
+				</form>
+				<?php
+		}
 	
-	if($_GET['action']='cretepage'){
+	elseif($_GET['action'] == 'editpage'){
+		$filename = $_GET['pg_name'];
+		$locatn = "C:/wamp/www/tigercms/pages/data/pg_".$filename;
+		$pg_data = readXml($locatn);
 		?>
-		<form action="pages.php" method="post">
-			<table>
-				<tr>
-					<td>Page Title:<td/><td><input type="text" name="pg_title" /></td>
-				</tr>
-				<tr>
-					<td>Page Contents:<td/><td><textarea id="pg_contents" name="pg_contents" rows="30" cols="50"></textarea></td>
-				</tr>
-				<tr>
-					<td>Options:<td/><td><input type="checkbox" name="menu_tab" value="true" /> Add to Menu</td>
-				</tr>
-				<tr>
-					<td><input type="submit" value="Save Page" /></td><td></td>
-				</tr>
-			</table>
-		</form>
-		<?php
+					<form action="pages.php" method="post">
+					<input type="text" name="old_pg_title" style="display: none;" value= "<?php echo $pg_data['pg_title'];?>" />
+						<table>
+							<tr>
+								<td>Page Title:<td/><td><input type="text" name="pg_title" value="<?php echo $pg_data['pg_title']; ?>" /></td>
+							</tr>
+							<tr>
+								<td>Page Contents:<td/><td><textarea id="pg_contents" name="pg_contents" rows="30" cols="50"><?php echo $pg_data['pg_contents']; ?></textarea></td>
+							</tr>
+							<tr>
+								<td>Options:<td/><td><input type="checkbox" name="menu_tab" value="true" /> Add to Menu</td>
+							</tr>
+							<tr>
+								<td><input type="submit" value="Save Page" /></td><td></td>
+							</tr>
+						</table>
+					</form>
+					<?php
 	}
+		
+		
 }
 
 elseif (isset($_POST) && ($_POST != NULL)){
+	
 	$filename = str_replace(" ", "_", $_POST['pg_title']);
-	$locatn = "../pages/data/".$filename;
+	$locatn = "C:/wamp/www/tigercms/pages/data/pg_".$filename;
+	if(isset($_POST['old_pg_title'])){
+		if($_POST['old_pg_title'] != $_POST['pg_title']){
+			$filename_old = str_replace(" ", "_", $_POST['old_pg_title']);
+			$locatn_old = "C:/wamp/www/tigercms/pages/data/pg_".$filename_old;
+			unlink($locatn_old.'.xml');
+		}
+		unset($_POST['old_pg_title']); // remove confirm password entry
+	}
 	xmlWrite($_POST,$locatn);
 	?>
 	
