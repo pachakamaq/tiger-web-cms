@@ -72,7 +72,7 @@ validateAdmin();
 		<span class="tab "id = "theme" >Themes</span>
 		<span class="tab" id = "menu_manager">Menu Manager</span>
 		<div>
-		<iframe id = "left_iframe" src = "" width="500" height="500">
+		<iframe id = "left_iframe" src = "" width="100%" height="700">
 		</iframe>
 		</div>
 		</form>	
