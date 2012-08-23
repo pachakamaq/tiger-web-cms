@@ -102,7 +102,7 @@ if($_GET['action'] == 'createpage'){
 		delXml($locatn);
 		delFromMenu(str_replace("_", " ", $_GET['pg_name']));
 		?>
-		<div>Page successfully Deleted! <br /><a href="pages.php">View all pages.</a></div>
+		<div>Page successfully Deleted!</div>
 		<?php
 		
 	}
@@ -138,7 +138,7 @@ elseif (isset($_POST) && ($_POST != NULL)){
 	?>
 	
 	<div>
-		Page Successfully Created!!!<br />
+		Page Successfully Created!!!
 	<!-- 	<a href="../pages/page.php?page=pg_name">Visit page</a>  -->
 	</div>
 	

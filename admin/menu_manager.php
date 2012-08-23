@@ -1,4 +1,8 @@
-<?php include 'C:\wamp\www\tigercms\functions\xml_helper.php' ?><!--Location here-->
+<?php include 'C:\wamp\www\tigercms\admin\functions\xml_helper.php';
+include 'C:\wamp\www\tigercms\admin\functions\admin_helper.php';
+validateAdmin();
+
+?>
 
 <!DOCTYPE html>
 <html>
@@ -45,7 +49,7 @@
 				
 				$i++;
 			}
-		xmlWrite($str,'C:\wamp\www\tigercms\pages\data\Menus');//Location here
+		xmlWrite($str,'C:\wamp\www\tigercms\pages\data\menu_tabs');//Location here
 		header('Location:menu_manager.php');
 
 	
@@ -64,7 +68,7 @@
 			<tr>
 			<td><ul id="sort" style="list-style-type:none;">
 			<?php 
-			$m_list = readXml('C:\wamp\www\tigercms\pages\data\Menus');//Location here
+			$m_list = readXml('C:\wamp\www\tigercms\pages\data\menu_tabs');//Location here
 			$i = 1;
 			while($i <= count($m_list))
 			{
