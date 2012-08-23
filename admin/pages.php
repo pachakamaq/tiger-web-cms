@@ -94,6 +94,15 @@ if($_GET['action'] == 'createpage'){
 					</form>
 					<?php
 	}
+	elseif($_GET['action'] == 'delpage'){
+		$filename = $_GET['pg_name'];
+		$locatn = "C:/wamp/www/tigercms/pages/data/pg_".$filename;
+		delXml($locatn);
+		?>
+		<div>Page successfully Deleted! <br /><a href="pages.php">View all pages.</a></div>
+		<?php
+		
+	}
 		
 		
 }
@@ -106,7 +115,7 @@ elseif (isset($_POST) && ($_POST != NULL)){
 		if($_POST['old_pg_title'] != $_POST['pg_title']){
 			$filename_old = str_replace(" ", "_", $_POST['old_pg_title']);
 			$locatn_old = "C:/wamp/www/tigercms/pages/data/pg_".$filename_old;
-			unlink($locatn_old.'.xml');
+			delXml($locatn_old);
 		}
 		unset($_POST['old_pg_title']); // remove confirm password entry
 	}
@@ -121,10 +130,24 @@ elseif (isset($_POST) && ($_POST != NULL)){
 	<?php
 }
 else{
-	
-	echo "list of pages";
 	$locatn = "C:/wamp/www/tigercms/pages/data";
-	getPageList($locatn);
+	$page_list = getPageList($locatn);
+	?>
+	<table>
+		<tr>
+			<td>Page Title<td/><td>Edit</td><td>Delete</td>
+		</tr>
+		<?php 
+		foreach ($page_list as $value){
+			?>
+			<tr>
+				<td><?php echo $value;?><td/><td><a href="pages.php?action=editpage&pg_name=<?php echo str_replace(" ", "_", $value); ?>">edit</a></td><td><a href="pages.php?action=delpage&pg_name=<?php echo str_replace(" ", "_", $value); ?>">delete</a></td>
+			</tr>
+			<?php 
+		}
+		?>
+	</table>
+	<?php
 	/*
 	 * function list pages
 	 */

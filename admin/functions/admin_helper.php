@@ -13,10 +13,13 @@ function validateAdmin(){
 	
 }
 
-function getPageList($dir){
-	$page_list = scandir($dir, 1);
-	print_r($page_list);
-	//check play.php
+function generateRandomString() {
+	$characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+	$randomString = '';
+	for ($i = 0; $i < 10; $i++) {
+		$randomString .= $characters[rand(0, strlen($characters) - 1)];
+	}
+	return $randomString;
 }
 
 ?>
