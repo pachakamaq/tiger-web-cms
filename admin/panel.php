@@ -1,4 +1,6 @@
-<?php include 'C:\wamp\www\tigercms\admin\functions\xml_helper.php' ?>
+<?php include 'C:\wamp\www\tigercms\admin\functions\xml_helper.php';
+include 'C:\wamp\www\tigercms\admin\functions\admin_helper.php';
+?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -43,14 +45,55 @@
 
 </head>
 <body>
+<?php if (isset($_GET) && ($_GET != NULL)){
+if($_GET['action'] == 'editpage'){
+		$filename = $_GET['pg_name'];
+		$locatn = "C:/wamp/www/tigercms/pages/data/pg_".$filename;
+		$pg_data = readXml($locatn);
+		$checked = checkInMenu(str_replace("_", " ", $_GET['pg_name']));
+		}//end of inner if
+		?>
+		<form action="panel.php" method="post">
+		<table>
+
+ <tr>
+ <td>Position:</td>
+ <td> <input type="radio" name="panelRadio" value="leftPanel" />Left Panel 
+ <input type="radio" name="panelRadio" value="rightPanel" />Right Panel </td>
+ </tr>
+ 
+ <tr>
+ <td>Content:</td> <td> <textarea id="pg_contents" name="pg_contents" rows="30" cols="50"> <?php echo $pg_data['pg_contents']; ?></textarea></td>
+  
+ 
+ </tr>
+ <tr><td> <input type="button" name="selectPanel" value="Select Panel"></input></td></tr>
+</table>
+		
+		</form>
+<?php }//end of outer if
+ else {
+	?>	
+<form action="panel.php" method="post">
 <table>
 
  <tr>
- <td> <input type="radio" name="leftPanel" value="leftPanel" />Left Panel </td>
- <td> <input type="radio" name="rightPanel" value="rightPanel" />Right Panel </td>
+ <td>Position:</td>
+ <td> <input type="radio" name="panelRadio" value="leftPanel" />Left Panel 
+ <input type="radio" name="panelRadio" value="rightPanel" />Right Panel </td>
  </tr>
+ 
+ <tr>
+ <td>Content:</td> <td> <textarea id="pg_contents" name="pg_contents" rows="30" cols="50"> </textarea></td>
+  
+ 
+ </tr>
+ <tr><td> <input type="button" name="selectPanel" value="Select Panel"></input></td></tr>
 </table>
-<?php
+</form>
+<?php }
+$location="C:/wamp/www/tigercms/pages/data/panel.xml";
+xmlWrite($_POST, $location);
 
 ?>
 
