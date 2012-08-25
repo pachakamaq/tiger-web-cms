@@ -90,6 +90,26 @@ function checkInMenu($pg_title){
 }
 
 
+function uploadFile($path, $fname)
+{
+    if ($_FILES[$fname]["error"] > 0)
+	{
+		return(false);
+	}
+	else
+	{
+		if (file_exists($path.$_FILES[$fname]["name"]))
+		{
+			return(false);
+		}
+		else
+		{
+			move_uploaded_file($_FILES[$fname]["tmp_name"],$path.$_FILES[$fname]["name"]);
+			return(true);
+		}
+	}
+	return(false);
+}
 
 /*
  * 
