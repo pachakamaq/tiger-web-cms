@@ -100,6 +100,7 @@ validateAdmin();
 		?>
 	<form action="admin_home.php" method="post">
 		<div>
+
 			<table>
 				<tr>
 					<td>Admin Settings:</td>
