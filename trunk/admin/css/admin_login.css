@@ -74,3 +74,40 @@ table {
 	font-family:Georgia, 'Times New Roman', Times, serif; 
 	font-weight:bold;
 }
+#setup_box_login
+{
+	background: url("../images/loginbox1_bg.png") no-repeat scroll 0 0 transparent;
+    padding-top: 60px;
+    width: 508px;
+    font-size: 12px;
+    line-height: 12px;
+    position: relative;
+    height: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+}
+
+#warning
+{
+	color: #161616;
+    font-family: Tahoma;
+    font-size: 13px;
+    line-height: 12px;
+    margin: 0 auto;
+    width: 310px;
+	padding: 0 0 6px;
+
+}
+
+a:link 
+{
+    color: #161616;
+	bottom: -40px;
+    font-family: Tahoma;
+    font-size: 11px;
+    font-weight: bold;
+    line-height: 12px;
+    position: relative;
+    right: -150px;
+}
