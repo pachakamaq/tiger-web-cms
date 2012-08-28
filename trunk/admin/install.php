@@ -11,14 +11,25 @@
 <div id="container">
   <div id="header" >
   <!-- Enter Site Header Here -->Site Setup 
+  
   </div> 
+  
+  
+  
 <div id="setup_box">
-  <div id="setup-inner">
+      <div id="setup-inner">
     <?php
 	if (isset($_POST) && ($_POST != NULL)){
 		if($_POST["pass"] != $_POST["cpass"]){
 			?>
-    <div id="warning">Password not verified</div>
+    <div id="warning">
+    <table border="0" width="100%" cellpadding="0" cellspacing="0">
+    <tr>
+    	<td class="red-left">Error:Password not verified</td>
+    </tr>
+    </table>
+    </div>
+
 	<form action="install.php" method="post">
 		<table cellspacing="0" cellpadding="0" border="0">
 			<tbody>
@@ -36,6 +47,7 @@
 	<?php 			
 		}
 		else{
+	
 			$locatn = $_POST['folder'].'admin/data/admin_config';
 			//$locatn = 'C:\wamp\www\tigercms\admin\data\admin_config';
 			$_POST['pass'] = md5($_POST['pass']);
@@ -60,6 +72,7 @@
 	}
 	else{
 		?>
+
 	<form action="install.php" method="post">
 		<table cellspacing="0" cellpadding="0" border="0">
 		<tr><th>Site Name:</th><td><input class="setup-inp" type="text" name="site_name" /></td></tr>
