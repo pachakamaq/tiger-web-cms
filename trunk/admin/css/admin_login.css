@@ -73,6 +73,28 @@ table {
 	padding-left:47px;
 	font-family:Georgia, 'Times New Roman', Times, serif; 
 	font-weight:bold;
+<<<<<<< .mine
+}
+
+#warning{
+	margin-bottom: 10px;
+
+}
+	
+
+.red-left	{
+	background: url(../images/message_red.gif) top left no-repeat;
+	color: #ce2700;
+	font-family: Tahoma;
+	font-weight: bold;
+	padding: 0 0 0 20px;
+	}
+.red-left a	{
+	color: #ce2700;
+	font-family: Tahoma;
+	font-weight: normal;
+	text-decoration: underline;
+	}=======
 }
 #setup_box_login
 {
@@ -111,3 +133,22 @@ a:link
     position: relative;
     right: -150px;
 }
+#warning{
+	margin-bottom: 10px;
+
+}
+	
+
+.red-left	{
+	background: url(../images/message_red.gif) top left no-repeat;
+	color: #ce2700;
+	font-family: Tahoma;
+	font-weight: bold;
+	padding: 0 0 0 20px;
+	}
+.red-left a	{
+	color: #ce2700;
+	font-family: Tahoma;
+	font-weight: normal;
+	text-decoration: underline;
+	}
