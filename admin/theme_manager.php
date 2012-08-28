@@ -1,4 +1,8 @@
-<?php include 'C:\wamp\www\tigercms\admin\functions\xml_helper.php' ?>
+<?php include 'C:\wamp\www\tigercms\admin\functions\xml_helper.php' ;
+include 'C:\wamp\www\tigercms\admin\functions\admin_helper.php';
+validateAdmin();
+
+?>
 
 <!DOCTYPE html>
 <html>
