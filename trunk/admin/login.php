@@ -1,4 +1,4 @@
-<?php include 'admin_variables';?>
+<?php include 'admin_variables.php';?>
 <?php include $global_admin_foldr['folder'].'functions/xml_helper.php';?>
 <?php include $global_admin_foldr['folder'].'functions/admin_helper.php';?>
 
