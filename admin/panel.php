@@ -47,10 +47,9 @@ include 'C:\wamp\www\tigercms\admin\functions\admin_helper.php';
 <body>
 <?php if (isset($_GET) && ($_GET != NULL)){
 if($_GET['action'] == 'editpage'){
-		$filename = $_GET['pg_name'];
-		$locatn = "C:/wamp/www/tigercms/pages/data/pg_".$filename;
+		$locatn = "C:/wamp/www/tigercms/pages/data/panel";
 		$pg_data = readXml($locatn);
-		$checked = checkInMenu(str_replace("_", " ", $_GET['pg_name']));
+		//$checked = checkInMenu(str_replace("_", " ", $_GET['pg_name']));
 		}//end of inner if
 		?>
 		<form action="panel.php" method="post">
