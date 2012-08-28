@@ -34,10 +34,17 @@
 	<?php 			
 		}
 		else{
-			$locatn = 'C:\wamp\www\tigercms\admin\data\admin_config';
+			$locatn = $_POST['folder'].'admin/data/admin_config';
+			//$locatn = 'C:\wamp\www\tigercms\admin\data\admin_config';
 			$_POST['pass'] = md5($_POST['pass']);
 			unset($_POST['cpass']); // remove confirm password entry
 			xmlWrite($_POST,$locatn);
+			$locatn = $_POST['folder'].'site_config';
+			//$locatn = 'C:\wamp\www\tigercms\site_config';
+			$site_data['site_name'] = $_POST['site_name'];
+			$site_data['url'] = $_POST['url'];
+			$site_data['folder'] = $_POST['folder'];
+			xmlWrite($site_data,$locatn);
 			?>
 			<div>Account Successfully created!!!<br />
 			<a href="login.php">Go to Login page</a>
