@@ -49,6 +49,7 @@ include 'C:\wamp\www\tigercms\admin\functions\admin_helper.php';
 if($_GET['action'] == 'editpage'){
 		$locatn = "C:/wamp/www/tigercms/pages/data/panel";
 		$pg_data = readXml($locatn);
+		//print_r($pg_data);
 		//$checked = checkInMenu(str_replace("_", " ", $_GET['pg_name']));
 		}//end of inner if
 		?>
@@ -71,8 +72,33 @@ if($_GET['action'] == 'editpage'){
 		
 		</form>
 <?php }//end of outer if
- else {
-	?>	
+ else if(isset($_POST) && ($_POST != NULL)){ 	
+$location="C:/wamp/www/tigercms/pages/data/panel";
+xmlWrite($_POST, $location);
+$pg_data=readXml($location);
+?>
+<form action="panel.php" method="post">
+		<table>
+
+ <tr>
+ <td>Position:</td>
+ <td> <input type="radio" name="panelRadio" value="leftPanel" />Left Panel 
+ <input type="radio" name="panelRadio" value="rightPanel" />Right Panel </td>
+ </tr>
+ 
+ <tr>
+ <td>Content:</td> <td> <textarea id="pg_contents" name="pg_contents" rows="30" cols="50"> <?php echo $pg_data['pg_contents']; ?></textarea></td>
+  
+ 
+ </tr>
+ <tr><td> <input type="button" name="selectPanel" value="Select Panel"></input></td></tr>
+</table>
+		
+		</form>
+
+<?php  }
+else{	
+ ?>	
 <form action="panel.php" method="post">
 <table>
 
@@ -87,12 +113,11 @@ if($_GET['action'] == 'editpage'){
   
  
  </tr>
- <tr><td> <input type="button" name="selectPanel" value="Select Panel"></input></td></tr>
+ <tr><td> <input type="submit" name="selectPanel" value="Select Panel"></input></td></tr>
 </table>
 </form>
-<?php }
-$location="C:/wamp/www/tigercms/pages/data/panel.xml";
-xmlWrite($_POST, $location);
+<?php 
+}
 
 ?>
 
