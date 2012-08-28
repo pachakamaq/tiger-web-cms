@@ -62,3 +62,15 @@ table {
     text-indent: -3000px;
     width: 73px;
 }
+
+#header{
+	font-size: 35px; 
+	color: #FFF; 
+	position: relative; 
+	margin: auto; 
+	width: 508px; 
+	top: 70px;
+	padding-left:47px;
+	font-family:Georgia, 'Times New Roman', Times, serif; 
+	font-weight:bold;
+}
