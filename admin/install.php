@@ -9,7 +9,7 @@
 </head>
 <body>
 <div id="container">
-  <div id="Header" style="font-size: 35px; color: #FFF; position: relative; margin: auto; width: 508px; top: 70px;padding-left:47px;font-family:Georgia, 'Times New Roman', Times, serif; font-weight:bold;">
+  <div id="header" >
   <!-- Enter Site Header Here -->Site Setup 
   </div> 
 <div id="setup_box">
