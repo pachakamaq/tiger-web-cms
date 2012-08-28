@@ -1,17 +1,22 @@
-<?php include 'admin_variables.php';?>
-<?php include $global_admin_foldr['folder'].'functions/xml_helper.php';?>
-<?php include $global_admin_foldr['folder'].'functions/admin_helper.php';?>
-
+<?php include 'C:\wamp\www\tigercms\admin\functions\xml_helper.php' ?>
+<?php include 'C:\wamp\www\tigercms\admin\functions\admin_helper.php' ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+<title>User Page</title>
+<link rel="stylesheet" type="text/css" href="css/common.css" />
+<link rel="stylesheet" type="text/css" href="css/admin_login.css" />
 </head>
 <body>
+<div id="container">
+<div id="setup_box_login">
+<div id="setup-inner">
+
 <?php
 if (isset($_POST) && ($_POST != NULL))
 { 
-	$locatn = $global_admin_foldr['folder'].'data/admin_config';
+	$locatn = 'C:\wamp\www\tigercms\admin\data\admin_config';
 	$config_data = readXml($locatn);	
 	if((($config_data['uname']) == ($_POST['uname'])) && (($config_data['pass']) == md5($_POST['pass'])))
 	{
@@ -27,19 +32,19 @@ if (isset($_POST) && ($_POST != NULL))
 		?>
 		<div id="warning">Invalid Login Details</div>
 		<form action = "login.php" method = "post">
-		Username: <input type = 'text' name = 'uname'/>
-		<br />
-		Password: <input type = 'password' name = 'pass'/>
-		<br />
-		Submit: <input type = 'submit' value = 'login'/>
-		<a href="login.php?retrieve=true">Retrieve User Details and Reset Password</a>
+		<table cellspacing="0" cellpadding="0" border="0">
+		<tr><th>Username:</th><td><input class="setup-inp" type="text" name="uname" /></td></tr>
+		<tr><th>Password:</th><td><input class="setup-inp" type="password" name="pass" /></td></tr>
+		<tr><th></th><td><input type="submit" class="submit-setup" value="Login" /></td></tr>
+		</table>
+		<div><a href="login.php?retrieve=true">Retrieve User Details and Reset Password?</a></div>
 		</form>
 		<?php
 	}
 }
 elseif (isset($_GET) && ($_GET != NULL))
 {
-	$locatn = $global_admin_foldr['folder'].'data/admin_config';
+	$locatn = 'C:\wamp\www\tigercms\admin\data\admin_config';
 	$config_data = readXml($locatn);
 	$new_pass = generateRandomString();
 	$config_data['pass']=md5($new_pass);
@@ -57,14 +62,18 @@ elseif (isset($_GET) && ($_GET != NULL))
 else{
 	?>
 		<form action = "login.php" method = "post">
-		Username: <input type = 'text' name = 'uname'/>
-		<br />
-		Password: <input type = 'password' name = 'pass'/>
-		<br />
-		Submit: <input type = 'submit' value = 'login'/>
+		<table cellspacing="0" cellpadding="0" border="0">
+		<tr><th>Username:</th><td><input class="setup-inp" type="text" name="uname" /></td></tr>
+		<tr><th>Password:</th><td><input class="setup-inp" type="password" name="pass" /></td></tr>
+		<tr><th></th><td><input type="submit" class="submit-setup" value="Login" /></td></tr>
+		
+		</table>
 		</form>
 		<?php 
 }
 	?>
+		</div>
+	</div>
+	</div>
 </body>
 </html>
