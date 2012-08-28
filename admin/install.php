@@ -9,13 +9,16 @@
 </head>
 <body>
 <div id="container">
+  <div id="Header" style="font-size: 35px; color: #FFF; position: relative; margin: auto; width: 508px; top: 70px;padding-left:47px;font-family:Georgia, 'Times New Roman', Times, serif; font-weight:bold;">
+  <!-- Enter Site Header Here -->Site Setup 
+  </div> 
 <div id="setup_box">
-<div id="setup-inner">
-	<?php
+  <div id="setup-inner">
+    <?php
 	if (isset($_POST) && ($_POST != NULL)){
 		if($_POST["pass"] != $_POST["cpass"]){
 			?>
-	<div id="warning">Password not verified</div>
+    <div id="warning">Password not verified</div>
 	<form action="install.php" method="post">
 		<table cellspacing="0" cellpadding="0" border="0">
 			<tbody>
