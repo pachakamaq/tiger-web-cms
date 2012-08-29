@@ -10,8 +10,10 @@
 <body>
 <div id="container">
   <div id="header" >
+  	<div id="h_name">
   <!-- Enter Site Header Here -->Site Setup 
-  
+  	</div>
+     <div id="message" style="padding: 15px 10px 15px 10px;"> Error: Password not verified</div>
   </div> 
   
   
@@ -22,13 +24,7 @@
 	if (isset($_POST) && ($_POST != NULL)){
 		if($_POST["pass"] != $_POST["cpass"]){
 			?>
-    <div id="warning">
-    <table border="0" width="100%" cellpadding="0" cellspacing="0">
-    <tr>
-    	<td class="red-left">Error:Password not verified</td>
-    </tr>
-    </table>
-    </div>
+   
 
 	<form action="install.php" method="post">
 		<table cellspacing="0" cellpadding="0" border="0">
