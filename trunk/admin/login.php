@@ -37,7 +37,7 @@ if (isset($_POST) && ($_POST != NULL))
 		<tr><th>Password:</th><td><input class="setup-inp" type="password" name="pass" /></td></tr>
 		<tr><th></th><td><input type="submit" class="submit-setup" value="Login" /></td></tr>
 		</table>
-		<div><a href="login.php?retrieve=true">Retrieve User Details and Reset Password?</a></div>
+		<div id="forgotpass"><a id= href="login.php?retrieve=true">Retrieve User Details and Reset Password?</a></div>
 		</form>
 		<?php
 	}
