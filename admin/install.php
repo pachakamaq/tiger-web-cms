@@ -30,11 +30,11 @@
 		if($_POST["pass"] != $_POST["cpass"]){
 			?>
 
-				<script type="text/javascript">
-					error ="Error: Password and Confirm Password fields do not match.";
-				</script>
+	<script type="text/javascript">
+		error ="Error: Password and Confirm Password fields do not match.";
+	</script>
 				
-				<form action="install.php" method="post">
+	<form action="install.php" method="post">
 		<table cellspacing="0" cellpadding="0" border="0">
 			<tbody>
 			<tr><th>Site Name:</th><td><input class="setup-inp" type="text" name="site_name" /></td></tr>
@@ -65,9 +65,10 @@
 			$site_data['folder'] = $_POST['folder'];
 			xmlWrite($site_data,$locatn);
 			?>
-			<div>Account Successfully created!!!<br />
-			<a href="login.php">Go to Login page</a>
-			</div>
+			<script type="text/javascript">
+				success ="Site Successfully Created !";
+			</script>
+			<div id="redirectlogin"><a style="color:black;" href="login.php">Go to Login page</a></div>
 			
 			
 			<?php 
