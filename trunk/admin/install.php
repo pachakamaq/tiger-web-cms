@@ -4,8 +4,13 @@
 <head>
 <meta name="description" content="Zorro CMS login setup" />
 <title>Site Setup</title>
+
 <link rel="stylesheet" type="text/css" href="css/common.css" />
 <link rel="stylesheet" type="text/css" href="css/admin_login.css" />
+
+<script type="text/javascript" src="jscripts/jquery-1.8.0.min.js"></script>
+<script type="text/javascript" src="jscripts/error-success.js"></script>
+
 </head>
 <body>
 <div id="container">
@@ -13,7 +18,7 @@
   	<div id="h_name">
   <!-- Enter Site Header Here -->Site Setup 
   	</div>
-     <div id="message" style="padding: 15px 10px 15px 10px;"> Error: Password not verified</div>
+     <div id="message" style="padding: 15px 10px 15px 10px;display:none;"></div>
   </div> 
   
   
@@ -24,9 +29,12 @@
 	if (isset($_POST) && ($_POST != NULL)){
 		if($_POST["pass"] != $_POST["cpass"]){
 			?>
-   
 
-	<form action="install.php" method="post">
+				<script type="text/javascript">
+					error ="Error: Password and Confirm Password fields do not match.";
+				</script>
+				
+				<form action="install.php" method="post">
 		<table cellspacing="0" cellpadding="0" border="0">
 			<tbody>
 			<tr><th>Site Name:</th><td><input class="setup-inp" type="text" name="site_name" /></td></tr>
