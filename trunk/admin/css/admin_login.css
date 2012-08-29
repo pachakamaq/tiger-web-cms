@@ -63,39 +63,8 @@ table {
     width: 73px;
 }
 
-#header{
-	font-size: 35px; 
-	color: #FFF; 
-	position: relative; 
-	margin: auto; 
-	width: 508px; 
-	top: 70px;
-	padding-left:47px;
-	font-family:Georgia, 'Times New Roman', Times, serif; 
-	font-weight:bold;
-<<<<<<< .mine
-}
 
-#warning{
-	margin-bottom: 10px;
 
-}
-	
-
-.red-left	{
-	background: url(../images/message_red.gif) top left no-repeat;
-	color: #ce2700;
-	font-family: Tahoma;
-	font-weight: bold;
-	padding: 0 0 0 20px;
-	}
-.red-left a	{
-	color: #ce2700;
-	font-family: Tahoma;
-	font-weight: normal;
-	text-decoration: underline;
-	}=======
-}
 #setup_box_login
 {
 	background: url("../images/loginbox1_bg.png") no-repeat scroll 0 0 transparent;
@@ -133,22 +102,34 @@ a:link
     position: relative;
     right: -150px;
 }
-#warning{
-	margin-bottom: 10px;
 
-}
+#header{
+ 
+	 
+	position: relative; 
+	margin: auto; 
+	width: 508px; 
+	top: 70px;
+	padding-left:47px;
 	
 
-.red-left	{
-	background: url(../images/message_red.gif) top left no-repeat;
-	color: #ce2700;
+}
+#h_name{
+	font-size: 35px;
+	color: #FFF;
+	font-family:Georgia, 'Times New Roman', Times, serif; 
+	font-weight:bold;
+}
+#message{
+	
+	position: relative;
+	top: 30px;
+	left: -12px;
+	width: 92%;
+	background: #FBD3B1;
+	color: #C00;
 	font-family: Tahoma;
 	font-weight: bold;
-	padding: 0 0 0 20px;
-	}
-.red-left a	{
-	color: #ce2700;
-	font-family: Tahoma;
-	font-weight: normal;
-	text-decoration: underline;
-	}
+	border-radius: 5px;
+	font-size: small;
+}
