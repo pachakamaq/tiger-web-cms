@@ -11,6 +11,7 @@
 <script type="text/javascript" src="jscripts/jquery-1.8.0.min.js"></script>
 <script type="text/javascript" src="jscripts/error-success.js"></script>
 <script type="text/javascript" src="jscripts/validate.js"></script>
+
 </head>
 <body>
 	<div id="container">
@@ -37,7 +38,7 @@
 	</script>
 
 				<form action="install.php" method="post">
-					<table cellspacing="0" cellpadding="0" border="0">
+					<table cellspacing="0" cellpadding="2" border="0">
 						<tbody>
 							<tr>
 								<th>Site Name:</th>
@@ -46,14 +47,14 @@
 							</tr>
 							<tr>
 								<th>Site URL:</th>
-								<td><input class="setup-inp" type="text" name="url"
-									value="http://" onblur="validate_url()" /></td>
+								<td><input class="setup-inp" type="text" name="url" onblur="validate_url()"/></td>
+									<td><img src="images/question.png" width="30" title= "e.g. http://tigercms.com/"/></td>
 							</tr>
 							<tr>
 								<th>Base Folder:</th>
-								<td><input class="setup-inp" type="text" name="folder"
-									onblur="validate_folder()" /></td>
-							</tr>
+								<td><input class="setup-inp" type="text" name="folder" onblur="validate_folder()" /></td>
+								<td><img src="images/question.png" width="30" title= "e.g. /var/www/tigercms/"/></td>
+								</tr>
 							<tr>
 								<th>E-mail:</th>
 								<td><input class="setup-inp" type="text" name="email"
@@ -115,7 +116,7 @@
 					?>
 
 				<form action="install.php" method="post">
-					<table cellspacing="0" cellpadding="0" border="0">
+					<table cellspacing="0" cellpadding="2" border="0">
 						<tr>
 							<th>Site Name:</th>
 							<td><input class="setup-inp" type="text" name="site_name"
@@ -123,13 +124,13 @@
 						</tr>
 						<tr>
 							<th>Site URL:</th>
-							<td><input class="setup-inp" type="text" name="url"
-								value="http://" onblur="validate_url()" /></td>
+							<td><input class="setup-inp" type="text" name="url" onblur="validate_url()"/></td>
+									<td><img src="images/question.png" width="30" title= "e.g. http://tigercms.com/"/></td>
 						</tr>
 						<tr>
 							<th>Base Folder:</th>
-							<td><input class="setup-inp" type="text" name="folder"
-								onblur="validate_folder()" /></td>
+							<td><input class="setup-inp" type="text" name="folder" onblur="validate_folder()" /></td><td>
+							<img src="images/question.png" width="30" title= "e.g. /var/www/tigercms/"/></td>
 						</tr>
 						<tr>
 							<th>E-mail:</th>
