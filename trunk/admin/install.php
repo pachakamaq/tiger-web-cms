@@ -38,7 +38,7 @@
 		<table cellspacing="0" cellpadding="0" border="0">
 			<tbody>
 			<tr><th>Site Name:</th><td><input class="setup-inp" type="text" name="site_name" /></td></tr>
-			<tr><th>Site URL:</th><td><input class="setup-inp" type="text" name="url" /></td></tr>
+			<tr><th>Site URL:</th><td><input class="setup-inp" type="text" name="url" value="http://" /></td></tr>
 			<tr><th>Base Folder:</th><td><input class="setup-inp" type="text" name="folder" /></td></tr>
 			<tr><th>E-mail:</th><td><input class="setup-inp" type="text" name="email" /></td></tr>
 			<tr><th>Username:</th><td><input class="setup-inp" type="text" name="uname" /></td></tr>
@@ -81,7 +81,7 @@
 	<form action="install.php" method="post">
 		<table cellspacing="0" cellpadding="0" border="0">
 		<tr><th>Site Name:</th><td><input class="setup-inp" type="text" name="site_name" /></td></tr>
-		<tr><th>Site URL:</th><td><input class="setup-inp" type="text" name="url" /></td></tr>
+		<tr><th>Site URL:</th><td><input class="setup-inp" type="text" name="url" value="http://" /></td></tr>
 		<tr><th>Base Folder:</th><td><input class="setup-inp" type="text" name="folder" /></td></tr>
 		<tr><th>E-mail:</th><td><input class="setup-inp" type="text" name="email" /></td></tr>
 		<tr><th>Username:</th><td><input class="setup-inp" type="text" name="uname" /></td></tr>
