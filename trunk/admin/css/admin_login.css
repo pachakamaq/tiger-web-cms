@@ -34,7 +34,7 @@ table {
     padding: 3px;
 }
 #setup-inner th {
-    padding: 0 0 6px;
+    padding: 0 15px 6px 0;
     text-align: left;
     width: 95px;
 }
