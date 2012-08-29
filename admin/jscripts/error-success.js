@@ -1,6 +1,7 @@
 var error = "";
-    var success = "";
-	$(document).ready(function() {
+var success = "";
+
+function showErrorSuccess(){
 		if( error !=""){
 			$("#message").show().addClass("error_message");
 			$("#message").html(error);
@@ -9,4 +10,4 @@ var error = "";
 			$("#message").show().addClass("success_message");
 			$("#message").html(success);
 		}
-	});
+	}
