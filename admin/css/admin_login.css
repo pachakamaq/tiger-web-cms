@@ -120,16 +120,4 @@ a:link
 	font-family:Georgia, 'Times New Roman', Times, serif; 
 	font-weight:bold;
 }
-#message{
-	
-	position: relative;
-	top: 30px;
-	left: -12px;
-	width: 92%;
-	background: #FBD3B1;
-	color: #C00;
-	font-family: Tahoma;
-	font-weight: bold;
-	border-radius: 5px;
-	font-size: small;
-}
+
