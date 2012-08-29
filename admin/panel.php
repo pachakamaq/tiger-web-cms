@@ -45,21 +45,23 @@ include 'C:\wamp\www\tigercms\admin\functions\admin_helper.php';
 
 </head>
 <body>
-<?php if (isset($_GET) && ($_GET != NULL)){
-if($_GET['action'] == 'editpage'){
+
+<?php if ((isset($_GET) && ($_GET != NULL))||file_exists('C:/wamp/www/tigercms/pages/data/panel.xml')){
+
 		$locatn = "C:/wamp/www/tigercms/pages/data/panel";
 		$pg_data = readXml($locatn);
 		//print_r($pg_data);
-		//$checked = checkInMenu(str_replace("_", " ", $_GET['pg_name']));
-		}//end of inner if
+		$checked = $pg_data['panelRadio'];
+		 
+		
 		?>
 		<form action="panel.php" method="post">
 		<table>
 
  <tr>
  <td>Position:</td>
- <td> <input type="radio" name="panelRadio" value="leftPanel" />Left Panel 
- <input type="radio" name="panelRadio" value="rightPanel" />Right Panel </td>
+ <td> <input type="radio" name="panelRadio" value="leftPanel"<?php if($checked=="leftPanel"){?> checked="checked"<?php }?>  />Left Panel 
+ <input type="radio" name="panelRadio" value="rightPanel" <?php if($checked=="rightPanel"){?> checked="checked"<?php }?>/>Right Panel </td>
  </tr>
  
  <tr>
@@ -72,18 +74,19 @@ if($_GET['action'] == 'editpage'){
 		
 		</form>
 <?php }//end of outer if
- else if(isset($_POST) && ($_POST != NULL)){ 	
+ else if((isset($_POST) && ($_POST != NULL))||(file_exists('C:/wamp/www/tigercms/pages/data/panel.xml'))){ 	
 $location="C:/wamp/www/tigercms/pages/data/panel";
 xmlWrite($_POST, $location);
 $pg_data=readXml($location);
+$chk=$pg_data['panelRadio'];
 ?>
 <form action="panel.php" method="post">
 		<table>
 
  <tr>
  <td>Position:</td>
- <td> <input type="radio" name="panelRadio" value="leftPanel" />Left Panel 
- <input type="radio" name="panelRadio" value="rightPanel" />Right Panel </td>
+ <td> <input type="radio" name="panelRadio" value="leftPanel" <?php if($chk=="leftPanel"){?> checked="checked"<?php }?>/>Left Panel 
+ <input type="radio" name="panelRadio" value="rightPanel" <?php if($chk=="rightPanel"){?> checked="checked"<?php }?>/>Right Panel </td>
  </tr>
  
  <tr>
