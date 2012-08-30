@@ -20,12 +20,12 @@ body {
     margin-top: 100px;
 }
 #setup-inner {
-    color: #161616;
-    font-family: Tahoma;
-    font-size: 13px;
-    line-height: 12px;
-    margin: 0 auto;
-    width: 310px;
+	color: #161616;
+	font-family: Tahoma;
+	font-size: 13px;
+	/* [disabled]line-height: 12px; */
+	margin: 0 auto;
+	width: 310px;
 }
 table {
     border-collapse: collapse;
@@ -129,4 +129,3 @@ table {
 	font-family:Georgia, 'Times New Roman', Times, serif; 
 	font-weight:bold;
 }
-
