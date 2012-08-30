@@ -1,4 +1,4 @@
-<Files ~ "\.inc$">
+<Files ~ "\.xml$">
   Order allow,deny
   Deny from all
 </Files>
