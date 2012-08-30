@@ -7,25 +7,9 @@ validateAdmin();
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+<link rel="stylesheet" type="text/css" href="css/admin_panel.css" />
 <style type="text/css">
-html {
-	overflow: auto;
-}
 
-html,body,div,iframe {
-	margin: 0px;
-	padding: 0px;
-	height: 100%;
-	border: none;
-}
-
-iframe {
-	display: block;
-	width: 100%;
-	border: none;
-	overflow-y: auto;
-	overflow-x: hidden;
-}
 </style>
 <script type="text/javascript"
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
@@ -76,18 +60,23 @@ iframe {
 		$config_data = readXml($locatn);
 		?>
 	<form action="admin_panel.php" method="post">
-		<div>
+		<div id = "centre_container">
+		<div id = "top_container">
 			Welcome
 			<?php echo $config_data['uname']?>
-			<a href="admin_panel.php?logout=true">Logout</a>
+			
 		</div>
-		<span class="tab" id="admin_panel">Home</span> <span class="tab"
-			id="pages">Pages</span> <span class="tab " id="theme">Themes</span> <span
-			class="tab" id="menu_manager">Menu Manager</span>
 		<div>
-			<iframe id="left_iframe" src="admin_home.php" frameborder="0"
+		
+		 <span class="tab" id="admin_panel">Home</span>
+		 <span class="tab" id="pages">Pages</span>
+		 <span class="tab " id="theme">Themes</span> 
+		 <span class="tab" id="menu_manager">Menu Manager</span>
+		 <a id = "logout" href="admin_panel.php?logout=true">Logout</a>
+					<iframe id="left_iframe" src="admin_home.php" frameborder="0"
 				marginheight="0" marginwidth="0" width="100%" height="100%"
 				scrolling="auto"> </iframe>
+				</div>
 		</div>
 	</form>
 	<?php 
