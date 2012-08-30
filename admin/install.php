@@ -48,13 +48,9 @@
 							<tr>
 								<th>Site URL:</th>
 								<td><input class="setup-inp" type="text" name="url" onblur="validate_url()"/></td>
-									<td><img src="images/question.png" width="30" title= "e.g. http://tigercms.com/"/></td>
+									<td><img style="cursor:pointer;" src="images/question.png" width="30" title= "e.g. http://tigercms.com/"/></td>
 							</tr>
-							<tr>
-								<th>Base Folder:</th>
-								<td><input class="setup-inp" type="text" name="folder" onblur="validate_folder()" /></td>
-								<td><img src="images/question.png" width="30" title= "e.g. /var/www/tigercms/"/></td>
-								</tr>
+							
 							<tr>
 								<th>E-mail:</th>
 								<td><input class="setup-inp" type="text" name="email"
@@ -85,15 +81,14 @@
 				<?php 			
 					}
 					else{
-
+						$_POST['folder'] = str_replace("admin","", getcwd());
+						$_POST['folder'] = str_replace("\\","/",$_POST['folder']);
 						$locatn = $_POST['folder'].'admin/data/admin_config';
-						//$locatn = 'C:\wamp\www\tigercms\admin\data\admin_config';
 						$_POST['pass'] = md5($_POST['pass']);
 						unset($_POST['cpass']); // remove confirm password entry
 						include $_POST['folder'].'admin/functions/xml_helper.php';
 						xmlWrite($_POST,$locatn);
 						$locatn = $_POST['folder'].'site_config';
-						//$locatn = 'C:\wamp\www\tigercms\site_config';
 						$site_data['site_name'] = $_POST['site_name'];
 						$site_data['url'] = $_POST['url'];
 						$site_data['folder'] = $_POST['folder'];
@@ -125,13 +120,9 @@
 						<tr>
 							<th>Site URL:</th>
 							<td><input class="setup-inp" type="text" name="url" onblur="validate_url()"/></td>
-									<td><img src="images/question.png" width="30" title= "e.g. http://tigercms.com/"/></td>
+									<td><img style="cursor:pointer;" src="images/question.png" width="30" title= "e.g. http://tigercms.com/"/></td>
 						</tr>
-						<tr>
-							<th>Base Folder:</th>
-							<td><input class="setup-inp" type="text" name="folder" onblur="validate_folder()" /></td><td>
-							<img src="images/question.png" width="30" title= "e.g. /var/www/tigercms/"/></td>
-						</tr>
+						
 						<tr>
 							<th>E-mail:</th>
 							<td><input class="setup-inp" type="text" name="email"
