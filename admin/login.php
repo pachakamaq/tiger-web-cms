@@ -1,7 +1,7 @@
 <?php 
 include 'admin_variables.php';
-include $global_admin['folder'].'functions\xml_helper.php';
-include $global_admin['folder'].'functions\admin_helper.php';
+include $global_admin['folder'].'functions/xml_helper.php';
+include $global_admin['folder'].'functions/admin_helper.php';
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -37,7 +37,7 @@ if (isset($_POST) && ($_POST != NULL))
 { 
 	
 	
-	$locatn = $global_admin['folder'].'data\admin_config';
+	$locatn = $global_admin['folder'].'data/admin_config';
 	$config_data = readXml($locatn);	
 	if((($config_data['uname']) == ($_POST['uname'])) && (($config_data['pass']) == md5($_POST['pass'])))
 	{
@@ -69,7 +69,7 @@ if (isset($_POST) && ($_POST != NULL))
 }
 elseif (isset($_GET) && ($_GET != NULL))
 {
-	$locatn = $global_admin['folder'].'data\admin_config';
+	$locatn = $global_admin['folder'].'data/admin_config';
 	$config_data = readXml($locatn);
 	$new_pass = generateRandomString();
 	$config_data['pass']=md5($new_pass);
