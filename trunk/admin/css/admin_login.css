@@ -94,14 +94,16 @@ table {
 #forgotpass > a:link 
 {
     color: #161616;
-	bottom: -40px;
+	bottom: -5px;
     font-family: Tahoma;
     font-size: 11px;
     font-weight: bold;
     line-height: 12px;
     position: relative;
-    right: -150px;
+    right: -130px;
 }
+
+
 
 #redirectlogin > a:link{
 	color: #161616;

@@ -5,14 +5,27 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>User Page</title>
+<title>Login</title>
 <link rel="stylesheet" type="text/css" href="css/common.css" />
 <link rel="stylesheet" type="text/css" href="css/admin_login.css" />
+<script type="text/javascript" src="jscripts/error-success.js"></script>
 </head>
 <body>
 <div id="container">
+	<div id="header" > 
+   	  <div id="message" class="error_message" style="padding: 15px 10px 15px 10px;z-index:2; position:relative; top:198px; left:50px; width:70%; display:none;"> dgdgdg </div>
+        <img src="images/lock.png" alt="Login Lock Logo" width="120" style="position:relative;top: 85px;left: -68px; z-index:1;" />	
+        
+   	  <div id="h_name" style="position:relative;top: 15px;padding-left: 90px;">
+				<!-- Enter Site Header Here -->
+				Admin Login
+		</div>
+        
+  </div>
+</div>
+
 <div id="setup_box_login">
-<div id="setup-inner">
+<div id="setup-inner" style="/* [disabled]padding:0 0 17px; */">
 
 <?php
 if (isset($_POST) && ($_POST != NULL))
@@ -31,14 +44,19 @@ if (isset($_POST) && ($_POST != NULL))
 	else
 	{
 		?>
-		<div id="warning">Invalid Login Details</div>
+        <script type="text/javascript">
+		error ="Error: Password and Confirm Password fields do not match.";
+		showErrorSuccess();
+		
+		</script>
+		
 		<form action = "login.php" method = "post">
 		<table cellspacing="0" cellpadding="0" border="0">
 		<tr><th>Username:</th><td><input class="setup-inp" type="text" name="uname" /></td></tr>
 		<tr><th>Password:</th><td><input class="setup-inp" type="password" name="pass" /></td></tr>
 		<tr><th></th><td><input type="submit" class="submit-setup" value="Login" /></td></tr>
 		</table>
-		<div id="forgotpass"><a id= href="login.php?retrieve=true">Retrieve User Details and Reset Password?</a></div>
+		<div id="forgotpass"><a href="login.php?retrieve=true">Retrieve User Details and Reset Password?</a></div>
 		</form>
 		<?php
 	}
@@ -74,7 +92,7 @@ else{
 }
 	?>
 		</div>
-	</div>
+</div>
 	</div>
 </body>
 </html>
