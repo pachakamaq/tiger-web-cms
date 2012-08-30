@@ -8,7 +8,10 @@
 <title>Login</title>
 <link rel="stylesheet" type="text/css" href="css/common.css" />
 <link rel="stylesheet" type="text/css" href="css/admin_login.css" />
+
+<script type="text/javascript" src="jscripts/jquery-1.8.0.min.js"></script>
 <script type="text/javascript" src="jscripts/error-success.js"></script>
+
 </head>
 <body>
 <div id="container">
@@ -30,6 +33,8 @@
 <?php
 if (isset($_POST) && ($_POST != NULL))
 { 
+	
+	
 	$locatn = $global_admin['folder'].'data\admin_config';
 	$config_data = readXml($locatn);	
 	if((($config_data['uname']) == ($_POST['uname'])) && (($config_data['pass']) == md5($_POST['pass'])))
@@ -45,9 +50,8 @@ if (isset($_POST) && ($_POST != NULL))
 	{
 		?>
         <script type="text/javascript">
-		error ="Error: Password and Confirm Password fields do not match.";
+		error ="Error: Invalid login details.";
 		showErrorSuccess();
-		
 		</script>
 		
 		<form action = "login.php" method = "post">
