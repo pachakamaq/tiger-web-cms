@@ -1,7 +1,10 @@
-<?php include 'C:\wamp\www\tigercms\admin\functions\admin_helper.php';
-include 'C:\wamp\www\tigercms\admin\functions\xml_helper.php';
+<?php 
+include 'admin_variables.php';
+include $global_admin['folder'].'functions/xml_helper.php';
+include $global_admin['folder'].'functions/admin_helper.php';
 validateAdmin();
 ?>
+
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -74,7 +77,7 @@ validateAdmin();
 	<?php 			
 		}
 		else{
-			$locatn = 'C:\wamp\www\tigercms\admin\data\admin_config';
+			$locatn = $global_admin['folder'].'data/admin_config';
 			$_POST['pass'] = md5($_POST['pass']);
 			//print_r($_POST);
 
@@ -96,7 +99,7 @@ validateAdmin();
 	}
 	else
 	{
-		$locatn = 'C:\wamp\www\tigercms\admin\data\admin_config';
+		$locatn = $global_admin['folder'].'data/admin_config';
 		$config_data = readXml($locatn);
 		?>
 	<form action="admin_home.php" method="post">
