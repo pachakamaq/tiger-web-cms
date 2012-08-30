@@ -78,7 +78,10 @@ elseif (isset($_GET) && ($_GET != NULL))
 	$headers = "From: ".$config_data['url'];
 	mail($to,$subject,$txt,$headers);
 	?>
-		<div>Password Send Succesfully to the registered email.</div>
+		<script type="text/javascript">
+			success ="Details sent successfully to registered email!.";
+			showErrorSuccess();
+		</script>
 		<a href="login.php">Back To Login Page</a>
 		<?php 
 }
