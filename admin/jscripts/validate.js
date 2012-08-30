@@ -16,20 +16,30 @@ function validate_site_name()
 }
 
 function validate_url()
-{
+{ 
 	var value = $('input[name = url]').val();
 	var pattern = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
 	  if (pattern.test(value))
 	  {
-		  $("#message").hide();  
-		  return true;
+		  if(value.substr(-1) == '/'){
+			  $("#message").hide();  
+			  return true;  
+		  }
+		  else
+			{
+				error = "Error: Not valid URL. Start URL with 'http://' and end with '/'";
+				showErrorSuccess();
+				return false;
+			}
+		  
 		}
-		else
+	  else
 		{
-			error = "Not valid URL. Start URL with 'http://'";
+			error = "Error: Not valid URL. Start URL with 'http://' and end with '/'";
 			showErrorSuccess();
 			return false;
 		}
+		
 }
 
 function validate_email()
@@ -39,7 +49,7 @@ function validate_email()
 		var dotpos=x.lastIndexOf(".");
 		if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length)
 		  {
-		  error = "Not a valid e-mail address";
+		  error = "Error: Not a valid e-mail address";
 		  showErrorSuccess();	  
 		  return false;
 		  }
