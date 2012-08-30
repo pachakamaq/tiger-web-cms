@@ -11,8 +11,7 @@ validateAdmin();
 <style type="text/css">
 
 </style>
-<script type="text/javascript"
-	src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
 <script type="text/javascript">
 		
 		$(document).ready(function()
@@ -60,24 +59,32 @@ validateAdmin();
 		$config_data = readXml($locatn);
 		?>
 	<form action="admin_panel.php" method="post">
-		<div id = "centre_container">
-		<div id = "top_container">
+		<div id = "top_container" >
 			Welcome
 			<?php echo $config_data['uname']?>
-			
 		</div>
-		<div>
 		
-		 <span class="tab" id="admin_panel">Home</span>
+		<div id ="menu_tabs_container">
+		<span class = "tabs_left">
+		<span class="tab" id="admin_panel">Home</span>
+		 <img src = "images/divider.jpg" />
 		 <span class="tab" id="pages">Pages</span>
-		 <span class="tab " id="theme">Themes</span> 
+		 <img id = "divider2" src = "images/divider.jpg" />
+		 <span class="tab" id="theme">Themes</span> 
+		 <img id = "divider3" src = "images/divider.jpg" />
 		 <span class="tab" id="menu_manager">Menu Manager</span>
-		 <a id = "logout" href="admin_panel.php?logout=true">Logout</a>
-					<iframe id="left_iframe" src="admin_home.php" frameborder="0"
+		 <img id = "divider4" src = "images/divider.jpg"/>
+		 </span>
+		 <span id = "tabs_right_logout">
+		 <img id = "divider5" src = "images/divider.jpg"/>
+		 <a id = "logout" href="admin_panel.php?logout=true">Logout</a></span>
+		 <br/>
+		<iframe id="left_iframe" src="admin_home.php" frameborder="0"
 				marginheight="0" marginwidth="0" width="100%" height="100%"
-				scrolling="auto"> </iframe>
+				scrolling="auto">
+		</iframe>
+				
 				</div>
-		</div>
 	</form>
 	<?php 
 	}
@@ -86,3 +93,4 @@ validateAdmin();
 </body>
 
 </html>
+ 
