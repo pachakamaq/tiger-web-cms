@@ -1,4 +1,5 @@
-<Files ~ "\.xml$">
-  Order allow,deny
-  Deny from all
-</Files>
+
+<FilesMatch ".(xml)$">
+ Order Allow,Deny
+ Deny from all
+</FilesMatch>
