@@ -50,21 +50,6 @@ function validate_email()
 		}
 }
 
-function validate_folder()
-{
-		var value = $('input[name = folder]').val();
-		if(value.substr(-1) === "/" )
-		{
-			$("#message").hide();
-			return true;
-		}
-		else
-		{
-			error = "Not valid folder address. It should end with '/'";
-		  showErrorSuccess();
-		  return false;
-		}		
-}
 
 function validate_uname()
 {
@@ -99,13 +84,14 @@ function validate_pass()
 
 function validateAll()
 {
+	
 	if(!(validate_site_name())){}
 	else if(!(validate_url())){}
 	else if(!(validate_email())){}
-	else if(!(validate_folder())){}
 	else if(!(validate_uname())){}
 	else if(!(validate_pass())){}
 	else{
+		
 		$("form").submit();
 	}
 }
