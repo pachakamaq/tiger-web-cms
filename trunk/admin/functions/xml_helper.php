@@ -14,7 +14,7 @@ function xmlWrite($data_array,$location){
     $fp = fopen($location.'.xml', 'w');
 	fwrite($fp, $xml->asXML());
 	fclose($fp);
-	chmod($location.'.xml',0600);
+	chmod($location.'.xml',170);
 	
 }
 
