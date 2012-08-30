@@ -129,3 +129,10 @@ table {
 	font-family:Georgia, 'Times New Roman', Times, serif; 
 	font-weight:bold;
 }
+
+#message{
+	position: relative;
+	top: 30px;
+	left: -12px;
+	width: 92%;
+}
