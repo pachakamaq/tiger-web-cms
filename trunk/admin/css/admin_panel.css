@@ -63,6 +63,7 @@ span.tab:hover{
 	margin-right: 8px;
     position: relative;
     top: 5px;
+    border:0;
 }
 
 .tab_logout > a:link 
