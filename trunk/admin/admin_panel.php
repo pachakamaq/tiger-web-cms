@@ -31,6 +31,7 @@ validateAdmin();
                     break;             
                 default:
                 	$("#admin_iframe").attr('src','admin_home.php');
+            	
             }
 			});			
 		});	
@@ -57,7 +58,7 @@ validateAdmin();
 		
 		<div id ="menu_tabs_container">
 			<div id = "tabs_left">
-				<span class="tab" id="admin_panel">Home</span>
+				<span class="tab active_tab" id="admin_panel">Home</span>
 				 <img src = "images/divider.jpg" />
 				 <span class="tab" id="pages">Pages</span>
 				 <img src = "images/divider.jpg" />
