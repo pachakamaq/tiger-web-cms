@@ -14,18 +14,12 @@ function xmlWrite($data_array,$location){
     $fp = fopen($location.'.xml', 'w');
 	fwrite($fp, $xml->asXML());
 	fclose($fp);
-	chmod($location.'.xml',0170);
+//	chmod($location.'.xml',0170);
 	
 }
 
 function readXml($location){
-//	if (file_exists('test.xml')) {
-		$xml = simplexml_load_file($location.'.xml');
-	
-	//	print_r($xml);
-//	} else {
-//		exit('Failed to open test.xml.');
-//	}
+	$xml = simplexml_load_file($location.'.xml');
 	$json = json_encode($xml);
 	$array = json_decode($json,TRUE);
 	return $array;
@@ -111,26 +105,5 @@ function uploadFile($path, $fname)
 	}
 	return(false);
 }
-
-/*
- * 
- * Test current function
- * 
- *
-$arra= array(
-		'name' => 'poonam',
-		'uname' => 'cjnvmx,n',
-		'pass' => 'sgcbv,mzcxsrgs',
-		'message' => 'ds,mcnv,znbfs'
-		);
-$loc = 'pankaj';
-
-xmlWrite($arra,$loc);
-print_r(readXml($loc));
-
- * 
- * 
- */
-
 
 ?>
