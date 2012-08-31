@@ -1,125 +1,62 @@
-
-#top_container
-{
-	background: url("../images/top_bg.jpg") repeat-x scroll center top transparent;
-    border-bottom: 1px solid #7E7E7E;
-    font-family: tahoma;
-    font-size: 25px;
-    font-weight: bold;
-    height: 45px;
-    padding-top: 46px;
-    color: #FFFFFF;
-    
-}
-
-#menu_tabs_container
-{
-	background: url("../images/repeat.jpg") repeat-x scroll center top #3D3D3D;
-    height: 38px;
-    padding-left: 40px;
-	padding-right: 40px;
-    
-}
-
-.divider1
-{
-    height: 40px;
-    padding-left: 15px;
-}
-
-.divider2
-{
-    height: 40px;
-    padding-left: 73px;
-}
-.divider3
-{
-    height: 40px;
-	padding-left: 15px;
-}
-.divider4
-{
-    height: 40px;
-	padding-left: 15px;
-}
-.divider5
-{
-    height: 40px;
-	padding-right: 50px;
-}
-.tabs_left
-{
- 	float: left;
-    font-family: Tahoma;
-    font-size: 15px;
-    height: 40px;
-    min-width: 600px;
-    position: relative;
-    width: 800px;
-    z-index: 500;
-}
-
-#logout
-{
-	padding-left:20px;
-}
-#tabs_right_logout
-{
-	float: right;
-	font-family: Tahoma;
-	font-weight:bold;
-    font-size: 15px;
-    height: 40px;
-    position: relative;
-    padding-right: 30px;
-    color: #FFFFFF;
-}
-
-#admin_panel
-{
-    
-}
-
-#pages
-{
-   
-}
-
-#menu_manager
-{
-    
-}
-
-#theme
-{
-	
-}
-
-.tab
-{
-	font-family: Tahoma;
-    font-size: 15px;
-    height: 40px;
-    color: #FFFFFF;
-    font-weight: bold;
-    padding-bottom: 10px;
- 
-}
-html {
-	overflow: auto;
-}
-
-html,body,div,iframe {
+html,body,iframe {
 	margin: 0px;
 	padding: 0px;
 	height: 100%;
 	border: none;
 }
 
-iframe {
-	display: block;
-	width: 100%;
-	border: none;
-	overflow-y: auto;
-	overflow-x: hidden;
+
+#top_container {
+    background: url("../images/top_bg.jpg") repeat-x scroll center top transparent;
+    border-bottom: 1px solid #7E7E7E;
+    color: #FFFFFF;
+    font-family: tahoma;
+    font-size: 20px;
+    font-weight: bold;
+    height: 45px;
+    padding-left: 70px;
+    padding-top: 46px;
 }
+
+
+#menu_tabs_container {
+    background: url("../images/repeat.jpg") repeat-x scroll center top #3D3D3D;
+    color: #FFFFFF;
+    font-size: 15px;
+    font-weight: bold;
+    font-family: Tahoma;
+}
+
+div#tabs_left {
+    float: left;
+    height:38px;
+    margin-left: 70px;
+}
+div#tabs_right {
+    float: right;
+    height:38px;
+    margin-right: 70px;
+}
+span.tab{
+	position:relative;
+	top:-12px;
+
+}
+
+#logout_img{
+	margin-right: 8px;
+    position: relative;
+    top: 5px;
+}
+
+.tab > a:link 
+{
+COLOR: #FFFFFF;
+text-decoration:none;
+}
+.tab > a:visited 
+{
+COLOR: #FFFFFF;
+text-decoration:none;
+}
+
