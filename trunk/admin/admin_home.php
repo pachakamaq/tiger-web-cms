@@ -15,7 +15,18 @@ validateAdmin();
     <script type="text/javascript" src="jscripts/jquery-1.8.0.min.js"></script>
 	<script type="text/javascript" src="jscripts/error-success.js"></script>
 	<script type="text/javascript" src="jscripts/validate.js"></script>
-	
+	<script type="text/javascript">
+		$(document).ready(function() {
+		   $('button-all').click(function() {
+				if($(this).attr('type') == 'reset'){
+					location.reload();
+					}
+				else if($(this).attr('type') == 'submit'){
+					validateAdminDetails();
+					}
+			   });
+		 });
+	</script>
 </head>
 
 <body>
@@ -43,10 +54,13 @@ validateAdmin();
 <?php
 if (isset($_POST) && ($_POST != NULL))
 {
-	if($_POST["pass"] != $_POST["cpass"]){
+	if((isset($_POST["pass"])) && ($_POST["pass"] != $_POST["cpass"])){
 ?>
     
-	<div id="warning" class="error-inner">Password not verified <br /></div>
+	<script type="text/javascript">
+		error ="Error: Password and Confirm Password fields do not match.";
+		showErrorSuccess();
+	</script>
 	
     <form action="admin_home.php" method="post" id="id-form">
 		<div>
@@ -94,7 +108,7 @@ if (isset($_POST) && ($_POST != NULL))
 					<td>
                     	<span>                    	
                     	<button type="submit" value="Save" class="button-all">Save </button> 
-                    	<button type="reset" value="Reset" class="button-all">Reset</button>
+                    	<button type="reset" value="Reset" class="button-all" >Reset</button>
                         </span>
 					</td>
 				</tr>
@@ -106,16 +120,25 @@ if (isset($_POST) && ($_POST != NULL))
 		}
 		else{
 			$locatn = $global_admin['folder'].'data/admin_config';
-			$_POST['pass'] = md5($_POST['pass']);
-			//print_r($_POST);
-
-			unset($_POST['cpass']); // remove confirm password entry
-			xmlWrite($_POST,$locatn);
-
+			$data_config = readXml($locatn);
+			if(isset($_POST['pass'])){
+				$data_config['pass'] = md5($_POST['pass']);
+			}
+			$data_config['site_name'] = $_POST['site_name'];
+			$data_config['url'] = $_POST['url'];
+			$data_config['email'] = $_POST['email'];
+			xmlWrite($data_config,$locatn);
+			$locatn = $global_site['folder'].'site_config';
+			$data_config = readXml($locatn);
+			$data_config['site_name'] = $_POST['site_name'];
+			$data_config['url'] = $_POST['url'];
+			xmlWrite($data_config,$locatn);
 	?>
-	
-    <div id="sucess">
-		Changes done Successfully!!!<br /> 
+	<script type="text/javascript">
+		success ="Details Successfully Updated!.";
+		showErrorSuccess();
+	</script>
+    <div> 
         <a href="admin_home.php">Go to Admin Home page</a>
 	</div>
 	
