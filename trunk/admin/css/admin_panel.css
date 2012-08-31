@@ -40,7 +40,18 @@ div#tabs_right {
 span.tab{
 	position:relative;
 	top:-12px;
+	cursor: pointer;
+	padding: 3px 10px;
+	border-radius: 5px;
 
+}
+
+span.tab:hover{
+	background:#3B3B3B;
+}
+
+.active_tab{
+	background:#3B3B3B;
 }
 
 #logout_img{
@@ -59,4 +70,5 @@ text-decoration:none;
 COLOR: #FFFFFF;
 text-decoration:none;
 }
+
 
