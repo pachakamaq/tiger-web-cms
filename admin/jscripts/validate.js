@@ -105,3 +105,15 @@ function validateAll()
 		$("form").submit();
 	}
 }
+
+function validateAdminDetails()
+{
+	
+	if(!(validate_site_name())){}
+	else if(!(validate_url())){}
+	else if(!(validate_email())){}
+	else{
+		
+		$("form").submit();
+	}
+}
