@@ -17,11 +17,12 @@ validateAdmin();
 	<script type="text/javascript" src="jscripts/validate.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function() {
-		   $('button-all').click(function() {
-				if($(this).attr('type') == 'reset'){
+		   $('.button-all').click(function() {
+				if($(this).attr('id') == 'reset'){
+					$('#message').hide();
 					location.reload();
 					}
-				else if($(this).attr('type') == 'submit'){
+				else if($(this).attr('id') == 'submit'){
 					validateAdminDetails();
 					}
 			   });
@@ -106,10 +107,10 @@ if (isset($_POST) && ($_POST != NULL))
 				<tr>
                 	<th></th> 
 					<td>
-                    	<span>                    	
-                    	<button type="submit" value="Save" class="button-all">Save </button> 
-                    	<button type="reset" value="Reset" class="button-all" >Reset</button>
-                        </span>
+                    	<div style="padding-top:15px;">                    	
+                    	<span id="submit" class="button-all">Save </span> 
+                    	<span id="reset" class="button-all" >Reset</span>
+                        </div>
 					</td>
 				</tr>
 			</table>
@@ -138,7 +139,7 @@ if (isset($_POST) && ($_POST != NULL))
 		success ="Details Successfully Updated!.";
 		showErrorSuccess();
 	</script>
-    <div> 
+    <div id="redirecthome"> 
         <a href="admin_home.php">Go to Admin Home page</a>
 	</div>
 	
@@ -195,10 +196,10 @@ if (isset($_POST) && ($_POST != NULL))
 				<tr>
                 	<th></th> 
 					<td>
-                    <span> 
-                    	<button type="submit" value="Save" class="button-all">Save </button> 
-                    	<button type="reset" value="Reset" class="button-all">Reset</button>
-                        </span>
+                    <div style="padding-top:15px;"> 
+                    	<span id="submit" class="button-all">Save </span> 
+                    	<span id="reset" class="button-all" >Reset</span>
+                        </div>
 					</td>
 				</tr>
 			</table>
