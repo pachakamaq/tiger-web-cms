@@ -11,6 +11,7 @@ validateAdmin();
 
 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+
 <script type="text/javascript">
 		
 		$(document).ready(function()
@@ -67,11 +68,11 @@ validateAdmin();
 			 </div>
 			 <div id = "tabs_right">
 				 <img src = "images/divider.jpg"/>
-				 <span class="tab"><a href="admin_panel.php?logout=true"><img id="logout_img" src = "images/logout.png" height="25px"/>Logout</a></span>
+				 <span class="tab_logout"><a href="admin_panel.php?logout=true"><img id="logout_img" src = "images/logout.png" height="25px"/>Logout</a></span>
 			</div>
 			<div style="height:38px"></div>
 		</div>
-		<div><iframe id="admin_iframe" src="admin_home.php" frameborder="0" marginheight="0" marginwidth="0" width="100%" height="100%" scrolling="auto"></iframe></div>
+		<div><iframe id="admin_iframe" src="admin_home.php" ></iframe></div>
 	<?php 
 	}
 	?>

@@ -45,7 +45,12 @@ span.tab{
 	border-radius: 5px;
 
 }
-
+span.tab_logout
+{
+	position:relative;
+	top:-12px;
+	cursor: pointer;
+}
 span.tab:hover{
 	background:#3B3B3B;
 }
@@ -60,15 +65,26 @@ span.tab:hover{
     top: 5px;
 }
 
-.tab > a:link 
+.tab_logout > a:link 
 {
 COLOR: #FFFFFF;
 text-decoration:none;
+padding-right: 60px;
 }
-.tab > a:visited 
+.tab_logout > a:visited 
 {
 COLOR: #FFFFFF;
 text-decoration:none;
 }
 
-
+#admin_iframe
+{
+border: 0 none;
+    bottom: 0;
+    height: 100%;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 130px;
+    width: 100%;
+}
