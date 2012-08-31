@@ -8,6 +8,8 @@ validateAdmin();
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+<link rel="stylesheet" type="text/css" href="css/admin_home.css" />
+
 <script type="text/javascript" src="jscripts/tiny_mce/tiny_mce.js"></script>
 <script type="text/javascript">
 
@@ -47,54 +49,98 @@ validateAdmin();
 </script>
 </head>
 <body>
-<div><span><a href="pages.php">View Pages</a></span><span><a href="pages.php?action=createpage">Create Page</a></span></div>
+<div id="menu_tabs_container">
+	<div id = "tabs_left">
+    			
+				<a class="tab active_tab" href="pages.php">View Pages</a>
+				<img src = "images/divider.jpg" />
+				<a class="tab" href="pages.php?action=createpage">Create Page</a>
+				 
+	</div>
+    <div style="height:38px"></div>
+</div>
+
+
+<div id="content-outer">
+	<div id="content">
+    	
+        <table border="0" width="100%" cellpadding="0" cellspacing="0" id="content-table">
+            <tr>
+                <th rowspan="3" class="sized"><img src="images/side_shadowleft.jpg" width="20" height="300" alt="" /></th>
+                <th class="topleft"></th>
+                <td id="tbl-border-top">&nbsp;</td>
+                <th class="topright"></th>
+                <th rowspan="3" class="sized"><img src="images/side_shadowright.jpg" width="20" height="300" alt="" /></th>
+            </tr>
+			<tr>
+				<td id="tbl-border-left"></td>
+				<td>
+				<div id="content-table-inner">
+	
+                    <table border="0" width="100%" cellpadding="0" cellspacing="0">
+                    <tr valign="top">
+                    <td>
 <?php
 if (isset($_GET) && ($_GET != NULL)){	
 if($_GET['action'] == 'createpage'){
 
 	?>
 				<form action="pages.php" method="post">
-					<table>
+                <div>
+					<table  border="0" cellpadding="0" cellspacing="0"  id="id-form">
 						<tr>
-							<td>Page Title:<td/><td><input type="text" name="pg_title" /></td>
+							<th valign="top">Page Title:</th>							
+                            <td><input type="text" name="pg_title" class="inp-form"/></td>
 						</tr>
 						<tr>
-							<td>Page Contents:<td/><td><textarea id="pg_contents" name="pg_contents" rows="30" cols="50"></textarea></td>
+							<th valign="top">Page Contents:</th>
+                            <td><textarea id="pg_contents" name="pg_contents" rows="30" cols="50"></textarea></td>
 						</tr>
 						<tr>
-							<td>Options:<td/><td><input type="checkbox" name="menu_tab" value="true" /> Add to Menu</td>
+							<th valign="top">Options:</th>
+                            <td><input type="checkbox" name="menu_tab" value="true" />&nbsp;&nbsp;<b>Add to Menu</b></td>
 						</tr>
 						<tr>
-							<td><input type="submit" value="Save Page" /></td><td></td>
+                        	<th></th>
+							<td><button type="submit" value="Save" class="button-all">Save</button> </td>
 						</tr>
 					</table>
+                    
 				</form>
-				<?php
-		}
-	
-	elseif($_GET['action'] == 'editpage'){
-		$filename = $_GET['pg_name'];
-		$locatn = $global_site['folder'].'pages/data/pg_'.$filename;
-		$pg_data = readXml($locatn);
-		$checked = checkInMenu(str_replace("_", " ", $_GET['pg_name']));
-		?>
-					<form action="pages.php" method="post">
-					<input type="text" name="old_pg_title" style="display: none;" value= "<?php echo $pg_data['pg_title'];?>" />
-						<table>
-							<tr>
-								<td>Page Title:<td/><td><input type="text" name="pg_title" value="<?php echo $pg_data['pg_title']; ?>" /></td>
-							</tr>
-							<tr>
-								<td>Page Contents:<td/><td><textarea id="pg_contents" name="pg_contents" rows="30" cols="50"><?php echo $pg_data['pg_contents']; ?></textarea></td>
-							</tr>
-							<tr>
-								<td>Options:<td/><td><input type="checkbox" name="menu_tab" value="true" <?php echo $checked; ?> /> Add to Menu</td>
-							</tr>
-							<tr>
-								<td><input type="submit" value="Save Page" /></td><td></td>
-							</tr>
-						</table>
-					</form>
+<?php
+	}
+
+elseif($_GET['action'] == 'editpage'){
+	$filename = $_GET['pg_name'];
+	$locatn = $global_site['folder'].'pages/data/pg_'.$filename;
+	$pg_data = readXml($locatn);
+	$checked = checkInMenu(str_replace("_", " ", $_GET['pg_name']));
+?>
+    <form action="pages.php" method="post">
+    	<div>
+        	<input type="text" name="old_pg_title" style="display: none;" value= "<?php echo $pg_data['pg_title'];?>" />
+            <table  border="0" cellpadding="0" cellspacing="0"  id="id-form">
+               	<tr>
+					<th valign="top">Page Title:</th>							
+                    <td><input type="text" name="pg_title" value="<?php echo $pg_data['pg_title']; ?>" class="inp-form"/></td>
+				</tr>
+                <tr>
+                    <th valign="top">Page Contents:</th>
+                    <td><textarea id="pg_contents" name="pg_contents" rows="30" cols="50"><?php echo $pg_data['pg_contents']; ?></textarea></td>
+                </tr>
+                <tr>
+                    <th valign="top">Options:</th>
+                    <td><input type="checkbox" name="menu_tab" value="true" <?php echo $checked; ?> /> &nbsp;&nbsp; Add to Menu</td>
+                </tr>
+                <tr>
+                	<th></th>
+                    <td><button type="submit" value="Save Page" class="button-all">Save Page</button> </td>
+                </tr>
+            </table>
+            </div>
+        </form>
+        
+        
 					<?php
 	}
 	elseif($_GET['action'] == 'delpage'){
@@ -118,7 +164,7 @@ elseif (isset($_POST) && ($_POST != NULL)){
 	if(isset($_POST['old_pg_title'])){
 		if($_POST['old_pg_title'] != $_POST['pg_title']){
 			$filename_old = str_replace(" ", "_", $_POST['old_pg_title']);
-			$locatn_old = "C:/wamp/www/tigercms/pages/data/pg_".$filename_old;
+			$locatn_old = $global_site['folder'].'pages/data/pg_'.$filename_old;
 			delXml($locatn_old);
 			delFromMenu($_POST['old_pg_title']);
 		}
@@ -149,26 +195,62 @@ else{
 	$locatn = $global_site['folder'].'pages/data';
 	$page_list = getPageList($locatn);
 	?>
-	<table>
+	
+    <table border="0" width="100%" cellpadding="0" cellspacing="0" id="product-table">
+
 		<tr>
-			<td>Page Title<td/><td>Edit</td><td>Delete</td>
+			<th class="table-header-repeat line-left" style="width:50%;">Page Title</th>
+            <th class="table-header-repeat line-left" style="width:25%;">Edit</th>
+            <th class="table-header-repeat line-left" style="width:25%;">Delete</th>
 		</tr>
-		<?php 
-		foreach ($page_list as $value){
-			?>
-			<tr>
-				<td><?php echo $value;?><td/><td><a href="pages.php?action=editpage&pg_name=<?php echo str_replace(" ", "_", $value); ?>">edit</a></td><td><a href="pages.php?action=delpage&pg_name=<?php echo str_replace(" ", "_", $value); ?>">delete</a></td>
+        
+<?php 
+	$i = 0;
+	foreach ($page_list as $value){
+		if($i % 2 == 0)	echo '<tr>';
+		else echo '<tr class="alternate-row">';
+?>
+			
+			<td><?php echo $value;?></td>
+            <td><a href="pages.php?action=editpage&pg_name=<?php echo str_replace(" ", "_", $value); ?>">edit</a></td>
+            <td><a href="pages.php?action=delpage&pg_name=<?php echo str_replace(" ", "_", $value); ?>">delete</a></td>
 			</tr>
-			<?php 
-		}
-		?>
+			
+<?php
+	$i++; 
+}
+?>
 	</table>
-	<?php
+
+
+<?php
 	/*
 	 * function list pages
 	 */
 }
 
 ?>
+
+                    </td>
+                    </tr>
+            		<tr>
+                		<td><img src="images/blank.gif" width="695" height="1" alt="blank" /></td>
+                		<td></td>
+           			</tr>
+        			</table>
+ 
+					<div class="clear"></div>
+				</div>
+				</td>
+				<td id="tbl-border-right"></td>
+			</tr>
+            <tr>
+                <th class="sized bottomleft"></th>
+                <td id="tbl-border-bottom">&nbsp;</td>
+                <th class="sized bottomright"></th>
+            </tr>
+    	</table>
+	</div>
+</div>
 </body>
 </html>
