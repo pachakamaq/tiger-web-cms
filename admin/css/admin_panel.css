@@ -1,9 +1,16 @@
-html,body,iframe {
+html,body{
 	margin: 0px;
 	padding: 0px;
 	height: 100%;
 	border: none;
 }
+iframe{
+	margin: 0px;
+	padding: 0px;
+	height: 100%;
+	border: none;
+}
+
 
 
 #top_container {
@@ -80,7 +87,7 @@ text-decoration:none;
 
 #admin_iframe
 {
-border: 0 none;
+	border: 0 none;
     bottom: 0;
     height: 100%;
     left: 0;

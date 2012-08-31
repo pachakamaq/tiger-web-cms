@@ -1,5 +1,5 @@
 <?php
-
+include 'admin_variables.php';
 function xmlWrite($data_array,$location){
     $xml = new SimpleXMLElement('<data/>');
     foreach($data_array as $key => $value){
@@ -55,7 +55,7 @@ function delXml($location){
 }
 
 function addToMenu($pg_title){
-	$location = 'C:/wamp/www/tigercms/pages/data/menu_tabs';
+	$location = $global_site['folder'].'pages/data/menu_tabs';
 	$menu_tabs = readXml($location);
 	$key = 'tab'.(sizeof($menu_tabs)+1);
 	$menu_tabs[$key]=$pg_title;
@@ -63,7 +63,7 @@ function addToMenu($pg_title){
 }
 
 function delFromMenu($pg_title){
-	$location = 'C:/wamp/www/tigercms/pages/data/menu_tabs';
+	$location = $global_site['folder'].'pages/data/menu_tabs';
 	$menu_tabs = readXml($location);
 	$menu_tabs_new = array();
 	$count = 1;
@@ -79,7 +79,7 @@ function delFromMenu($pg_title){
 }
 
 function checkInMenu($pg_title){
-	$location = 'C:/wamp/www/tigercms/pages/data/menu_tabs';
+	$location = $global_site['folder'].'pages/data/menu_tabs';
 	$menu_tabs = readXml($location);
 	$key = array_search($pg_title, $menu_tabs);
 	if($key){
