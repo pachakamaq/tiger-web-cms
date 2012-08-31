@@ -16,6 +16,8 @@ validateAdmin();
 		$(document).ready(function()
 		{
 			$(".tab").click(function() {
+				$(".tab").removeClass("active_tab");
+				$(this).addClass("active_tab");
 				switch ($(this).attr("id")) {
                 case "pages":
                 	$("#admin_iframe").attr('src','pages.php');
@@ -57,14 +59,14 @@ validateAdmin();
 				<span class="tab" id="admin_panel">Home</span>
 				 <img src = "images/divider.jpg" />
 				 <span class="tab" id="pages">Pages</span>
-				 <img id = "divider2" src = "images/divider.jpg" />
+				 <img src = "images/divider.jpg" />
 				 <span class="tab" id="theme">Themes</span> 
-				 <img id = "divider3" src = "images/divider.jpg" />
+				 <img src = "images/divider.jpg" />
 				 <span class="tab" id="menu_manager">Menu Manager</span>
-				 <img id = "divider4" src = "images/divider.jpg"/>
+				 <img src = "images/divider.jpg"/>
 			 </div>
 			 <div id = "tabs_right">
-				 <img id = "divider5" src = "images/divider.jpg"/>
+				 <img src = "images/divider.jpg"/>
 				 <span class="tab"><a href="admin_panel.php?logout=true"><img id="logout_img" src = "images/logout.png" height="25px"/>Logout</a></span>
 			</div>
 			<div style="height:38px"></div>
