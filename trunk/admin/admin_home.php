@@ -11,12 +11,17 @@ validateAdmin();
 <head>
 	<link rel="stylesheet" type="text/css" href="css/common.css" />
     <link rel="stylesheet" type="text/css" href="css/admin_home.css" />
+    
+    <script type="text/javascript" src="jscripts/jquery-1.8.0.min.js"></script>
+	<script type="text/javascript" src="jscripts/error-success.js"></script>
+	<script type="text/javascript" src="jscripts/validate.js"></script>
+	
 </head>
 
 <body>
 <div id="content-outer">
 	<div id="content">
-    	<div id="page-heading"><h1>My Settings</h1></div>
+    	<div id="page-heading"><h1>My Account</h1></div>
         <table border="0" width="100%" cellpadding="0" cellspacing="0" id="content-table">
             <tr>
                 <th rowspan="3" class="sized"><img src="images/side_shadowleft.jpg" width="20" height="300" alt="" /></th>
@@ -28,6 +33,7 @@ validateAdmin();
 			<tr>
 				<td id="tbl-border-left"></td>
 				<td>
+				<div id="message" style="padding: 15px 10px 15px 10px;display:none;"></div>
 				<div id="content-table-inner">
 	
                     <table border="0" width="100%" cellpadding="0" cellspacing="0">
@@ -47,15 +53,14 @@ if (isset($_POST) && ($_POST != NULL))
 			<table  border="0" cellpadding="0" cellspacing="0"  id="id-form">
 				<tr>
 					<th valign="top">Website Name:</th>
-                    <td><input type='text' name='site_name'
-						value='<?php echo $config_data['site_name']?>' class="inp-form" />
+                    <td><input type='text' name='site_name' value='<?php echo $config_data['site_name']?>' class="inp-form" onblur="validate_site_name()" />
 					</td>
                     <td></td>
                 </tr>
                 <tr>  
 					<th valign="top">Website URL: </th>
-                    <td><input type='text' name='url'
-						value='<?php echo $config_data['url']?>'  class="inp-form"/>
+                    <td>
+                    	<input type='text' name='url' value='<?php echo $config_data['url']?>' class="inp-form" onblur="validate_url()"/>
 					</td>
                     <td></td>
 				</tr>
@@ -68,8 +73,7 @@ if (isset($_POST) && ($_POST != NULL))
 				</tr>
 				<tr>
 					<th valign="top">Email Address:</th>
-					<td><input type='text' name='email'
-						value='<?php echo $config_data['email']?>'  class="inp-form"/>
+					<td><input type='text' name='email' value='<?php echo $config_data['email']?>' class="inp-form" onblur="validate_email()"/>
 					</td>
                     <td></td>
 				</tr>
@@ -119,10 +123,6 @@ if (isset($_POST) && ($_POST != NULL))
 		}
 
 	}
-	elseif(isset($_GET) && ($_GET != NULL))
-	{
-		//do something
-	}
 	else
 	{
 		$locatn = $global_admin['folder'].'data/admin_config';
@@ -134,15 +134,13 @@ if (isset($_POST) && ($_POST != NULL))
 			<table  border="0" cellpadding="0" cellspacing="0"  id="id-form">
 				<tr>
 					<th valign="top">Website Name:</th>
-                    <td><input type='text' name='site_name'
-						value='<?php echo $config_data['site_name']?>' class="inp-form" />
+                    <td><input type='text' name='site_name' value='<?php echo $config_data['site_name']?>'class="inp-form" onblur="validate_site_name()"/>
 					</td>
                     <td></td>
                 </tr>
                 <tr>  
 					<th valign="top">Website URL: </th>
-                    <td><input type='text' name='url'
-						value='<?php echo $config_data['url']?>'  class="inp-form"/>
+                    <td><input type='text' name='url' value='<?php echo $config_data['url']?>'  class="inp-form" onblur="validate_url()"/>
 					</td>
                     <td></td>
 				</tr>
@@ -155,8 +153,7 @@ if (isset($_POST) && ($_POST != NULL))
 				</tr>
 				<tr>
 					<th valign="top">Email Address:</th>
-					<td><input type='text' name='email'
-						value='<?php echo $config_data['email']?>'  class="inp-form"/>
+					<td><input type='text' name='email' value='<?php echo $config_data['email']?>' class="inp-form" onblur="validate_email()"/>
 					</td>
                     <td></td>
 				</tr>
