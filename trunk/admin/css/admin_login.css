@@ -112,6 +112,13 @@ table {
     font-weight: bold;
 }
 
+#redirectlogin > a:visited{
+	color: #161616;
+	font-family: Tahoma;
+	font-size: 15px;
+    font-weight: bold;
+}
+
 #header{
  
 	 

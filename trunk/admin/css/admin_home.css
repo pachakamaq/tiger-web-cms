@@ -178,20 +178,16 @@ padding: 0 0 10px 0;
 font-weight:bold;
 color:#FFFFFF;
 background-color:#7D7D7D;
-width:85px;
-text-align:center;
-padding:4px;
-text-decoration:none;
-height:35px;
-border:thick;
-border-color:#333;
+padding: 10px 20px;
 border-radius:6px;
 cursor:pointer;
+margin-left:5px;
+margin-right:5px;
 }
-button:hover
+
+.button-all:hover
 {
 background-color:#94B52C;
-border-color:#060;
 }
 
 .error-left {
@@ -299,3 +295,21 @@ a.active_tab{
 th.line-left	{
 	border-left: 1px solid #373737;
 	}
+	
+#redirecthome > a:link{
+	color: #161616;
+	font-family: Tahoma;
+	font-size: 15px;
+    font-weight: bold;
+}
+
+#redirecthome > a:visited{
+	color: #161616;
+	font-family: Tahoma;
+	font-size: 15px;
+    font-weight: bold;
+}
+
+#redirecthome {
+ margin-top: 23px;
+}
