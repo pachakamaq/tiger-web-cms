@@ -1,7 +1,8 @@
-<?php include 'C:\wamp\www\tigercms\admin\functions\xml_helper.php';
-include 'C:\wamp\www\tigercms\admin\functions\admin_helper.php';
+<?php 
+include 'admin_variables.php';
+include $global_admin['folder'].'functions/xml_helper.php';
+include $global_admin['folder'].'functions/admin_helper.php';
 validateAdmin();
-
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -73,7 +74,7 @@ if($_GET['action'] == 'createpage'){
 	
 	elseif($_GET['action'] == 'editpage'){
 		$filename = $_GET['pg_name'];
-		$locatn = "C:/wamp/www/tigercms/pages/data/pg_".$filename;
+		$locatn = $global_site['folder'].'pages/data/pg_'.$filename;
 		$pg_data = readXml($locatn);
 		$checked = checkInMenu(str_replace("_", " ", $_GET['pg_name']));
 		?>
@@ -98,7 +99,7 @@ if($_GET['action'] == 'createpage'){
 	}
 	elseif($_GET['action'] == 'delpage'){
 		$filename = $_GET['pg_name'];
-		$locatn = "C:/wamp/www/tigercms/pages/data/pg_".$filename;
+		$locatn = $global_site['folder'].'pages/data/pg_'.$filename;
 		delXml($locatn);
 		delFromMenu(str_replace("_", " ", $_GET['pg_name']));
 		?>
@@ -113,7 +114,7 @@ if($_GET['action'] == 'createpage'){
 elseif (isset($_POST) && ($_POST != NULL)){
 	
 	$filename = str_replace(" ", "_", $_POST['pg_title']);
-	$locatn = "C:/wamp/www/tigercms/pages/data/pg_".$filename;
+	$locatn = $global_site['folder'].'pages/data/pg_'.$filename;
 	if(isset($_POST['old_pg_title'])){
 		if($_POST['old_pg_title'] != $_POST['pg_title']){
 			$filename_old = str_replace(" ", "_", $_POST['old_pg_title']);
@@ -145,7 +146,7 @@ elseif (isset($_POST) && ($_POST != NULL)){
 	<?php
 }
 else{
-	$locatn = "C:/wamp/www/tigercms/pages/data";
+	$locatn = $global_site['folder'].'pages/data';
 	$page_list = getPageList($locatn);
 	?>
 	<table>
