@@ -215,7 +215,7 @@ background-color:#94B52C;
 	width: 187px;
 	}
 	
-	#menu_tabs_container {
+	#menu_tabs_container_child {
     background: url("../images/repeat.jpg") repeat-x scroll center top #3D3D3D;
     color: #FFFFFF;
     font-size: 15px;
@@ -223,7 +223,7 @@ background-color:#94B52C;
     font-family: Tahoma;
 }
 
-div#tabs_left {
+div#tabs_left_child {
     float: left;
     height:38px;
     margin-left: 70px;

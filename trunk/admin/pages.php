@@ -10,6 +10,7 @@ validateAdmin();
 <head>
 <link rel="stylesheet" type="text/css" href="css/admin_home.css" />
 
+<script type="text/javascript" src="jscripts/jquery-1.8.0.min.js"></script>
 <script type="text/javascript" src="jscripts/tiny_mce/tiny_mce.js"></script>
 <script type="text/javascript">
 
@@ -47,14 +48,30 @@ validateAdmin();
 		}
 	});
 </script>
+<script type="text/javascript">
+
+$(document).ready(function() {
+	var is_get = '<?php if (isset($_GET) && ($_GET != NULL)){ echo "get_true";}else{echo "get_false";}?>' ;
+	if(is_get == 'get_false'){
+		//	$('#tabs_left_child').find('a:first-child').removeClass('tab');
+			$('#tabs_left_child').find('a:first-child').addClass('active_tab');
+		}
+	else{
+	//	$('#tabs_left_child').find('a:last-child').removeClass('tab');
+		$('#tabs_left_child').find('a:last-child').addClass('active_tab');
+		}
+	 });
+	
+
+</script>
 </head>
 <body>
-<div id="menu_tabs_container">
-	<div id = "tabs_left">
+<div id="menu_tabs_container_child">
+	<div id = "tabs_left_child">
     			
-				<a class="tab active_tab" href="pages.php">View Pages</a>
+				<a class="tab" href="pages.php" onclick='activate_me()'>View Pages</a>
 				<img src = "images/divider.jpg" />
-				<a class="tab" href="pages.php?action=createpage">Create Page</a>
+				<a class="tab" href="pages.php?action=createpage" onclick='activate_me()'>Create Page</a>
 				 
 	</div>
     <div style="height:38px"></div>
