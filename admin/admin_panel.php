@@ -24,7 +24,7 @@ validateAdmin();
                 	$("#admin_iframe").attr('src','pages.php');
                     break;
                 case "theme":
-                	$("#admin_iframe").attr('src','theme.php');
+                	$("#admin_iframe").attr('src','theme_manager.php');
                     break;
                 case "menu_manager":
                 	$("#admin_iframe").attr('src','menu_manager.php');
