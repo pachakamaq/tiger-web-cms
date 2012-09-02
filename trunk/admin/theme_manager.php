@@ -1,7 +1,8 @@
-<?php include 'C:\wamp\www\tigercms\admin\functions\xml_helper.php' ;
-include 'C:\wamp\www\tigercms\admin\functions\admin_helper.php';
+<?php 
+include 'admin_variables.php';
+include $global_admin['folder'].'functions/xml_helper.php';
+include $global_admin['folder'].'functions/admin_helper.php';
 validateAdmin();
-
 ?>
 
 <!DOCTYPE html>
@@ -15,7 +16,7 @@ validateAdmin();
 		{
 			var thm = document.getElementById("themes");
 			var img = document.getElementById("snap");
-			img.src = "http://localhost/tigercms/themes/" + thm.value + "/snapshot.png";
+			img.src = <?php echo $global_site['url']?>+'themes/' + thm.value + '/snapshot.png';
 		}	
 -->	
 		</script>
@@ -32,9 +33,10 @@ validateAdmin();
 
 	if(isset($_POST) && ($_POST != NULL))
 	{
-		$data=readXml('C:\wamp\www\tigercms\admin\data\admin_config');
+		$locatn = $global_admin['folder'].'data/admin_config';
+		$data=readXml($locatn);
 		$data['theme']=$_POST['thm'];
-		xmlWrite($data,'C:\wamp\www\tigercms\admin\data\admin_config');
+		xmlWrite($data,$locatn);
 		$_POST = null;
 		header('Location:theme_manager.php?theme=changed');
 
@@ -52,20 +54,23 @@ validateAdmin();
 			}
 			else
 			{
-				if (file_exists("C:\wamp\www\\tigercms\\themes\\" . $_FILES["theme"]["name"]))
+				$locatn = $global_site['folder'].'themes/'. $_FILES["theme"]["name"];
+				if (file_exists($locatn))
 				{
 					header('Location:theme_manager.php?theme=Exists');
 				}
 				else
 				{
-					move_uploaded_file($_FILES["theme"]["tmp_name"],	"C:\wamp\www\\tigercms\\themes\\" . $_FILES["theme"]["name"]);
-					$fl = "C:\wamp\www\\tigercms\\themes\\";
+					$locatn = $global_site['folder'].'themes/'. $_FILES["theme"]["name"];
+					move_uploaded_file($_FILES["theme"]["tmp_name"],$locatn);
+					$locatn = $global_site['folder'].'themes/';
+					$fl = $locatn;
 					$dirnam = explode(".", $_FILES["theme"]["name"]);
 					$zip = new ZipArchive;
 					$res = $zip->open($fl . $_FILES["theme"]["name"]);
 					if ($res === TRUE) {
 						mkdir($fl.$dirnam[0],0755);
-						$zip->extractTo($fl.$dirnam[0].'\\');
+						$zip->extractTo($fl.$dirnam[0].'/');
 						$zip->close();
 						header('Location:theme_manager.php?theme=Uploaded');
 					} 
@@ -93,7 +98,8 @@ validateAdmin();
 			elseif($_GET["theme"]== "Err") $msg = "Sorry there was an error uploading your file.";
 			elseif($_GET["theme"]== "Exists") $msg = "Theme already exists";
 		}
-		$dir = 'C:\wamp\www\tigercms\themes';
+		$locatn = $global_site['folder'].'themes';
+		$dir = $locatn;
 		$themelist = scandir($dir);
 		$theme_list = array();
 		foreach ($themelist as $key => $value) {
@@ -101,7 +107,8 @@ validateAdmin();
 				array_push($theme_list,$themelist[$key]);
 			}
 		}
-		$data=readXml('C:\wamp\www\tigercms\admin\data\admin_config');
+		$locatn = $global_admin['folder'].'data/admin_config';
+		$data=readXml($locatn);
 		echo '<p align="center">'.$msg.'</p>';
 		echo '<p align="center">Your current theme is - '.$data['theme'].'</p>';
 		?>
@@ -142,7 +149,7 @@ validateAdmin();
 				<tr>
 					<td>
 					<?php
-						$source='http://localhost/tigercms/themes/'.$data['theme'].'/snapshot.png';
+						$source=$global_site['url'].'themes/'.$data['theme'].'/snapshot.png';
 						
 						echo '<img src="'.$source.'" id="snap" height="50%"/>';
 						
@@ -161,7 +168,8 @@ validateAdmin();
 		<input type="file" name="theme" accept=".zip"/>
 		<input type="submit" value="Upload"/>
 		</td></tr>
-		<tr><td><p id="msg"></p></td></tr>	
+		<tr><td><p id="msg"></p></td></tr>
+		</table>	
 	</form>
 	<?php 
 		}
