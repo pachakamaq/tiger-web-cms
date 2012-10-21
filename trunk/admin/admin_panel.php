@@ -13,7 +13,9 @@ validateAdmin();
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
 
 <script type="text/javascript">
-		
+function resizeParentIframe(frame_ht){
+	$("#iframe_container").height(frame_ht+'px');
+}
 		$(document).ready(function()
 		{
 			$(".tab").click(function() {
@@ -31,7 +33,6 @@ validateAdmin();
                     break;             
                 default:
                 	$("#admin_iframe").attr('src','admin_home.php');
-            	
             }
 			});			
 		});	
@@ -73,7 +74,7 @@ validateAdmin();
 			</div>
 			<div style="height:38px"></div>
 		</div>
-		<div><iframe id="admin_iframe" src="admin_home.php" ></iframe></div>
+		<div id="iframe_container"><iframe id="admin_iframe" src="admin_home.php" scrolling="no"></iframe></div>
 	<?php 
 	}
 	?>

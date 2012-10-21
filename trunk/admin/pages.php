@@ -51,6 +51,7 @@ validateAdmin();
 <script type="text/javascript">
 
 $(document).ready(function() {
+	parent.resizeParentIframe($(document).height());
 	var is_get = '<?php if (isset($_GET) && ($_GET != NULL)){ echo "get_true";}else{echo "get_false";}?>' ;
 	if(is_get == 'get_false'){
 		//	$('#tabs_left_child').find('a:first-child').removeClass('tab');
