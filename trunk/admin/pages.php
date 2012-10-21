@@ -51,16 +51,19 @@ validateAdmin();
 <script type="text/javascript">
 
 $(document).ready(function() {
-	parent.resizeParentIframe($(document).height());
+	
+	var pg_content_ht;
+	
 	var is_get = '<?php if (isset($_GET) && ($_GET != NULL)){ echo "get_true";}else{echo "get_false";}?>' ;
 	if(is_get == 'get_false'){
-		//	$('#tabs_left_child').find('a:first-child').removeClass('tab');
 			$('#tabs_left_child').find('a:first-child').addClass('active_tab');
+			pg_content_ht = $("div#content-outer").height()+$("div#menu_tabs_container_child").height();
 		}
 	else{
-	//	$('#tabs_left_child').find('a:last-child').removeClass('tab');
 		$('#tabs_left_child').find('a:last-child').addClass('active_tab');
+		pg_content_ht = $("div#content-outer").height()+$("div#menu_tabs_container_child").height()+80;
 		}
+	parent.resizeParentIframe(pg_content_ht);
 	 });
 	
 
@@ -70,9 +73,9 @@ $(document).ready(function() {
 <div id="menu_tabs_container_child">
 	<div id = "tabs_left_child">
     			
-				<a class="tab" href="pages.php" onclick='activate_me()'>View Pages</a>
+				<a class="tab" href="pages.php">View Pages</a>
 				<img src = "images/divider.jpg" />
-				<a class="tab" href="pages.php?action=createpage" onclick='activate_me()'>Create Page</a>
+				<a class="tab" href="pages.php?action=createpage">Create Page</a>
 				 
 	</div>
     <div style="height:38px"></div>

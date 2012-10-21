@@ -17,7 +17,8 @@ validateAdmin();
 	<script type="text/javascript" src="jscripts/validate.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function() {
-			parent.resizeParentIframe($(document).height());
+			
+			parent.resizeParentIframe($("div#content-outer").height());
 		   $('.button-all').click(function() {
 				if($(this).attr('id') == 'reset'){
 					$('#message').hide();
