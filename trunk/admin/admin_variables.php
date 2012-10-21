@@ -12,7 +12,4 @@ $global_site['folder'] = $array['folder'];
 
 $global_admin['url'] = $global_site['url'].'admin/';
 $global_admin['folder'] = $global_site['folder'].'admin/';
-
-
-
 ?>
