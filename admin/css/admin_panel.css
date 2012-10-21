@@ -85,7 +85,11 @@ COLOR: #FFFFFF;
 text-decoration:none;
 }
 
-#admin_iframe
+#admin_iframe{
+	border: 0 none;
+	width: 100%;
+}
+/*#admin_iframe
 {
 	border: 0 none;
     bottom: 0;
@@ -96,3 +100,4 @@ text-decoration:none;
     top: 130px;
     width: 100%;
 }
+*/
